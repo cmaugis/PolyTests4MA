@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 3 Tests du khi-deux | Tests statistiques, la suite …</title>
+  <meta name="description" content="Chapitre 3 Tests du khi-deux | Tests statistiques, la suite …" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 3 Tests du khi-deux | Tests statistiques, la suite …" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 3 Tests du khi-deux | Tests statistiques, la suite …" />
+  
+  
+  
+
+<meta name="author" content="Cathy Maugis-Rabusseau (INSA Toulouse / IMT)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">UF Elements de modélisation statistique</a></li>
+<li>      <img src="image/LogoInsaToulouse.jpg" height="20px" align="right"/>      </li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Préface</a></li>
+<li class="chapter" data-level="1" data-path="Rappels.html"><a href="Rappels.html"><i class="fa fa-check"></i><b>1</b> Rappels sur les tests</a><ul>
+<li class="chapter" data-level="1.1" data-path="Rappels.html"><a href="Rappels.html#rappels-généraux-sur-les-tests-statistiques"><i class="fa fa-check"></i><b>1.1</b> Rappels généraux sur les tests statistiques</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="Rappels.html"><a href="Rappels.html#hypothèse-nulle-et-hypothèse-alternative"><i class="fa fa-check"></i><b>1.1.1</b> Hypothèse nulle et hypothèse alternative</a></li>
+<li class="chapter" data-level="1.1.2" data-path="Rappels.html"><a href="Rappels.html#tests-statistiques"><i class="fa fa-check"></i><b>1.1.2</b> Tests statistiques</a></li>
+<li class="chapter" data-level="1.1.3" data-path="Rappels.html"><a href="Rappels.html#erreur-de-première-espèce-et-p-valeur"><i class="fa fa-check"></i><b>1.1.3</b> Erreur de première espèce et p-valeur</a></li>
+<li class="chapter" data-level="1.1.4" data-path="Rappels.html"><a href="Rappels.html#erreur-de-seconde-espèce-et-puissance"><i class="fa fa-check"></i><b>1.1.4</b> Erreur de seconde espèce et puissance</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="Rappels.html"><a href="Rappels.html#tests-paramétriques-mic3"><i class="fa fa-check"></i><b>1.2</b> Tests paramétriques (MIC3)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><i class="fa fa-check"></i><b>2</b> Tests basés sur la fonction de répartition empirique et sur les rangs</a><ul>
+<li class="chapter" data-level="2.1" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#rappels"><i class="fa fa-check"></i><b>2.1</b> Rappels</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#fonction-de-répartition-et-quantiles"><i class="fa fa-check"></i><b>2.1.1</b> Fonction de répartition et quantiles</a></li>
+<li class="chapter" data-level="2.1.2" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#fonction-de-répartition-empirique"><i class="fa fa-check"></i><b>2.1.2</b> Fonction de répartition empirique</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#test-de-kolmogorov-de-comparaison-ou-dadéquation"><i class="fa fa-check"></i><b>2.2</b> Test de Kolmogorov de comparaison ou d’adéquation</a></li>
+<li class="chapter" data-level="2.3" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#tests-de-comparaison-de-deux-échantillons"><i class="fa fa-check"></i><b>2.3</b> Tests de comparaison de deux échantillons</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#tests-de-kolmogorov-smirnov"><i class="fa fa-check"></i><b>2.3.1</b> Tests de Kolmogorov-Smirnov</a></li>
+<li class="chapter" data-level="2.3.2" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#test-de-wilcoxon--mann-whitney"><i class="fa fa-check"></i><b>2.3.2</b> Test de Wilcoxon- Mann-Whitney</a></li>
+<li class="chapter" data-level="2.3.3" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#test-de-la-médiane"><i class="fa fa-check"></i><b>2.3.3</b> Test de la médiane</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#tests-de-normalité"><i class="fa fa-check"></i><b>2.4</b> Tests de normalité</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#méthode-graphique-droite-de-henry"><i class="fa fa-check"></i><b>2.4.1</b> Méthode graphique : droite de Henry</a></li>
+<li class="chapter" data-level="2.4.2" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#test-de-normalité-de-kolmogorov-smirnov-de-lilliefors"><i class="fa fa-check"></i><b>2.4.2</b> Test de normalité de Kolmogorov-Smirnov (de Lilliefors)</a></li>
+<li class="chapter" data-level="2.4.3" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#test-de-shapiro-wilk"><i class="fa fa-check"></i><b>2.4.3</b> Test de Shapiro-Wilk</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html"><i class="fa fa-check"></i><b>3</b> Tests du khi-deux</a><ul>
+<li class="chapter" data-level="3.1" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#test-dajustement-du-khi-deux"><i class="fa fa-check"></i><b>3.1</b> Test d’ajustement du khi-deux</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#objectif-et-principe-du-test"><i class="fa fa-check"></i><b>3.1.1</b> Objectif et principe du test</a></li>
+<li class="chapter" data-level="3.1.2" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#lien-avec-la-loi-multinomiale"><i class="fa fa-check"></i><b>3.1.2</b> Lien avec la loi multinomiale</a></li>
+<li class="chapter" data-level="3.1.3" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#procédure-de-test-1"><i class="fa fa-check"></i><b>3.1.3</b> Procédure de test</a></li>
+<li class="chapter" data-level="3.1.4" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#exemple-de-mendel"><i class="fa fa-check"></i><b>3.1.4</b> Exemple de Mendel</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#test-du-chi2-dadéquation-à-une-famille-de-lois"><i class="fa fa-check"></i><b>3.2</b> Test du <span class="math inline">\(\chi^2\)</span> d’adéquation à une famille de lois</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#principe-du-test"><i class="fa fa-check"></i><b>3.2.1</b> Principe du test</a></li>
+<li class="chapter" data-level="3.2.2" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#exemple"><i class="fa fa-check"></i><b>3.2.2</b> Exemple</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#test-du-chi2-dindépendance"><i class="fa fa-check"></i><b>3.3</b> Test du <span class="math inline">\(\chi^2\)</span> d’indépendance</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#principe-du-test-1"><i class="fa fa-check"></i><b>3.3.1</b> Principe du test</a></li>
+<li class="chapter" data-level="3.3.2" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#procédure-de-test-2"><i class="fa fa-check"></i><b>3.3.2</b> Procédure de test</a></li>
+<li class="chapter" data-level="3.3.3" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#exemple-1"><i class="fa fa-check"></i><b>3.3.3</b> Exemple</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#test-dhomogénéité"><i class="fa fa-check"></i><b>3.4</b> Test d’homogénéité</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#principe-du-test-2"><i class="fa fa-check"></i><b>3.4.1</b> Principe du test</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#procédure-de-test-3"><i class="fa fa-check"></i><b>3.4.2</b> Procédure de test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#exemple-2"><i class="fa fa-check"></i><b>3.4.3</b> Exemple</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li>Cathy Maugis-Rabusseau</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tests statistiques, la suite …</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tests-du-khi-deux" class="section level1">
+<h1><span class="header-section-number">Chapitre 3</span> Tests du khi-deux</h1>
+<blockquote>
+<p>Les slides associés à ce chapitre sont disponibles <a href="image/SlidesTestsPart2.pdf">ici</a></p>
+</blockquote>
+<p>La famille des tests du khi-deux regroupe des tests d’objectifs variés (ajustement, indépendance, homogénéité, …)
+mais qui ont en commun de mesurer l’écart à l’hypothèse nulle via une “divergence du khi-deux” et dont les statistiques de test associées suivent asymptotiquement une loi du khi-deux.
+Les tests du khi-deux sont valables pour l’étude de données qualitatives (ou discrètes) à support fini. Cependant, en pratique, ces tests sont aussi appliqués à des données discrètes à support infini ou continues après regroupement en classes.</p>
+<div id="test-dajustement-du-khi-deux" class="section level2">
+<h2><span class="header-section-number">3.1</span> Test d’ajustement du khi-deux</h2>
+<div id="objectif-et-principe-du-test" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Objectif et principe du test</h3>
+<p>Soit <span class="math inline">\(X\)</span> une variable aléatoire qualitative ou quantitative discrète à <span class="math inline">\(K&gt;1\)</span> modalités <span class="math inline">\(\{a_1,\ldots,a_K\}\)</span>, de loi
+<span class="math inline">\(\boldsymbol{\pi}=(\pi_1,\ldots,\pi_K)\)</span> inconnue, où
+<span class="math display">\[
+\pi_k = \mathbb{P}(X=a_k)&gt;0,\ \forall k\in\{1,\ldots,K\}.
+\]</span>
+On dispose d’un <span class="math inline">\(n\)</span>-échantillon <span class="math inline">\((X_1, \ldots X_n)\)</span> de même loi que <span class="math inline">\(X\)</span>. On se donne par ailleurs une loi de probabilité <span class="math inline">\(\mathcal L_0\)</span> sur <span class="math inline">\(\{a_1,\ldots,a_K\}\)</span> connue caractérisée par <span class="math inline">\(\mathbf{p}^0=(p_1^0,\ldots,p_K^0)\)</span> tels que
+<span class="math display">\[
+\forall k,\ p_k^0\in]0,1[ \textrm{ et } \sum_{k=1}^K p_k^0 =1.
+\]</span></p>
+<p>On souhaite tester : <span class="math inline">\(\mathcal{H}_0 : X \sim \mathcal L^0\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span> : <span class="math inline">\(X\)</span> ne suit pas la loi <span class="math inline">\(\mathcal L^0\)</span>.
+On peut donc retraduire ces hypothèses de test par
+<span class="math display">\[
+\mathcal{H}_0 : \forall k,\ \pi_k = p_k^0 \textrm{ contre } \mathcal{H}_1 : \exists k,\ \pi_k \neq p_k^0.
+\]</span></p>
+<p>Une idée naturelle consiste à estimer la loi de probabilité <span class="math inline">\(\boldsymbol{\pi}\)</span> de X à l’aide de l’échantillon <span class="math inline">\((X_1,\ldots,X_n)\)</span> et de comparer cet estimateur avec la loi <span class="math inline">\(\mathbf{p}^0\)</span>. On va donc noter <span class="math inline">\(N_k= \sum_{i=1}^n \mathbb{1}_{X_i = a_k}\)</span> le nombre de fois que l’on obtient la valeur <span class="math inline">\(a_k\)</span> dans l’échantillon et on estime <span class="math inline">\(\pi_k\)</span> par <span class="math inline">\(\hat{\pi}_k = \frac{N_k}{n}\)</span>. On considère alors la statistique
+<span class="math display">\[
+T_{n}= n \sum_{k=1}^K \frac{\left(\hat{\pi}_k - p_k^0\right)^2}{p_k^0} = \sum_{k=1}^K \frac{\left(N_k - n p_k^0\right)^2}{n p_k^0}.
+\]</span>
+Cette statistique est appelée divergence du khi-deux entre les lois <span class="math inline">\(\hat{\boldsymbol{\pi}}\)</span> et <span class="math inline">\(\mathbf{p}^0\)</span>. Elle mesure la “distance” entre les proportions observées et les proportions théoriques sous <span class="math inline">\(\mathcal{H}_0\)</span>. Mais ce n’est pas une distance car il n’y a pas la propriété de symétrie.</p>
+</div>
+<div id="lien-avec-la-loi-multinomiale" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Lien avec la loi multinomiale</h3>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-42" class="proposition"><strong>Proposition 3.1  </strong></span>La v.a. <span class="math inline">\(N=(N_{1},\ldots,N_{K})&#39;\)</span> suit une loi multinomiale
+<span class="math inline">\(\mathcal{M}(n,\boldsymbol{\pi})\)</span> sur <span class="math inline">\(\mathbb{N}^K\)</span>, c’est-à-dire que pour tout <span class="math inline">\((n_1,\ldots,n_K)\in \mathbb{N}^K\)</span> on a
+<span class="math display">\[
+\mathbb{P}(N_{1}=n_1,\ldots,N_{K}=n_K)=\left\{
+  \begin{array}{cl}
+\frac{n!}{n_1!\ldots n_K!} \pi_1^{n_1}\ldots \pi_K^{n_K}&amp; \ \mbox{ si } \sum_{k=1}^K n_k=n\\
+\\
+0 &amp;  \ \mbox{ sinon. }
+  \end{array}
+\right.
+\]</span></p>
+</div>
+<p>Ainsi les hypothèses du test peuvent se traduire par
+<span class="math display">\[
+\mathcal{H}_0 : N \sim \mathcal M (n,\mathbf{p}^0) \textrm{ contre } \mathcal{H}_1 : N \textrm{ ne suit pas } \mathcal M(n,\mathbf{p}^0).
+\]</span></p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-43" class="proposition"><strong>Proposition 3.2  </strong></span>Soit <span class="math inline">\(\sqrt{\boldsymbol{\pi}}=\left(\sqrt{\pi_1},\ldots,\sqrt{\pi_K}\right)&#39;\)</span>. On a
+<span class="math display">\[Y_n=\left(\frac{N_{1}-n \pi_1}{\sqrt{n \pi_1}},\ldots,\frac{N_{K}-n \pi_K}{\sqrt{n \pi_K}}\right) \underset{n\rightarrow +\infty}{\stackrel{\mathcal L}{\longrightarrow}} \mathcal{N}_K\left(0,\Gamma\right),\]</span>
+où <span class="math inline">\(\Gamma= I_K - (\sqrt{\boldsymbol{\pi}}) (\sqrt{\boldsymbol{\pi}})&#39;\)</span> est la matrice de projection orthogonale sur <span class="math inline">\(\mbox{Vect}(\sqrt{\boldsymbol{\pi}})^{\perp}\)</span>.</p>
+</div>
+<div class="theoreme">
+<p>Sous l’hypothèse que <span class="math inline">\(X_1,\ldots, X_n\)</span> sont i.i.d. de loi <span class="math inline">\(\boldsymbol{\pi}=(\pi_1,\ldots,\pi_K)\)</span>,
+<span class="math display">\[Z_n=\sum_{k=1}^K \frac{\left(N_{k}-n \pi_k\right)^2}{n \pi_k} \underset{n\rightarrow +\infty}{\stackrel{\mathcal L}{\longrightarrow}} \chi^2(K-1).\]</span></p>
+</div>
+</div>
+<div id="procédure-de-test-1" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Procédure de test</h3>
+<p>On est maintenant en mesure de définir la procédure de test.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-44" class="proposition"><strong>Proposition 3.3  </strong></span>Le test d’ajustement du <span class="math inline">\(\chi^2\)</span> consiste à rejeter l’hypothèse nulle
+<span class="math inline">\(\boldsymbol{\pi}= \mathbf{p}^0\)</span> au niveau <span class="math inline">\(\alpha\)</span> si
+<span class="math display">\[T_{n}= \sum_{k=1}^K \frac{\left(N_{k}-n p^0_k\right)^2}{n p^0_k} &gt;x_{K-1,1-\alpha}\]</span>
+où <span class="math inline">\(x_{K-1,1-\alpha}\)</span> est le <span class="math inline">\(1-\alpha\)</span> quantile d’un <span class="math inline">\(\chi^2\)</span> à <span class="math inline">\(K-1\)</span> degrés de liberté.
+Ce test est de niveau asymptotique <span class="math inline">\(\alpha\)</span>.</p>
+</div>
+<p>On considère en pratique que l’approximation de la loi de <span class="math inline">\(T_n\)</span>
+sous l’hypothèse nulle par une loi du <span class="math inline">\(\chi^2\)</span> à <span class="math inline">\(K-1\)</span> degrés de liberté est bonne
+dès lors que <span class="math inline">\(n p^0_k\geq 5\)</span> pour tout <span class="math inline">\(k\)</span>. Lorsque ce n’est pas le cas, on regroupe des classes jusqu’à ce que ces conditions
+soient vérifiées. Mais lorsqu’on regroupe des modalités, la région de rejet change car la loi limite dépend du nombres de modalités.</p>
+<p>Que peut-on dire de la puissance du test?</p>
+<p>On peut remarquer que
+<span class="math display">\[
+\frac{T_n}{n}\geq \| N/n -  \mathbf{p}^0\|^2 \stackrel{p.s}{\longrightarrow} \|\boldsymbol{\pi} -  \mathbf{p}^0\|^2
+\]</span>
+par la loi des grands nombres et donc <span class="math inline">\(T_n \stackrel{p.s}{\longrightarrow} +\infty\)</span>. La puissance du test
+tend donc vers 1 quand <span class="math inline">\(n\)</span> tend vers <span class="math inline">\(+\infty\)</span>.</p>
+</div>
+<div id="exemple-de-mendel" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> Exemple de Mendel</h3>
+<p>Chez les pois, le caractère couleur est codé par un gène présentant deux formes allèles J et v correspondant aux couleurs jaune et vert. Le jaune est dominant et le vert récessif. Le caractère de forme, rond ou ridé, est porté par un autre gène à deux allèles R (dominant) et r (récessif). On croise 2 populations (pures) de pois: l’une jaune et ronde, l’autre verte et
+ridée. Selon la prédiction de Mendel, au bout de 2 croisements, la proportion de pois</p>
+<ul>
+<li>[JR] jaunes et ronds est <span class="math inline">\(9/16\)</span></li>
+<li>[Jr] jaunes et ridés est <span class="math inline">\(3/16\)</span></li>
+<li>[vR] verts et ronds est <span class="math inline">\(3/16\)</span></li>
+<li>[vr] verts et ridés est <span class="math inline">\(1/16\)</span></li>
+</ul>
+<p>Dans ses expériences, Mendel a obtenu les résultats suivants :
+<span class="math inline">\(N_{JR}=315\)</span>, <span class="math inline">\(N_{Jr}=101\)</span>, <span class="math inline">\(N_{vR}=108\)</span>, <span class="math inline">\(N_{vr}=32\)</span>. Ici <span class="math inline">\(K=4\)</span> et l’on
+obtient que <span class="math inline">\((T_n)^{obs}=0.47\)</span> et <span class="math inline">\(x_{3,0.95}=7.82\)</span>. On accepte
+donc très largement l’hypothèse de Mendel.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="tests-du-khi-deux.html#cb22-1"></a>Nk=<span class="kw">c</span>(<span class="dv">315</span>,<span class="dv">101</span>,<span class="dv">108</span>,<span class="dv">32</span>)</span>
+<span id="cb22-2"><a href="tests-du-khi-deux.html#cb22-2"></a>n =<span class="st"> </span><span class="kw">sum</span>(Nk)</span>
+<span id="cb22-3"><a href="tests-du-khi-deux.html#cb22-3"></a>ptheo =<span class="st"> </span><span class="kw">c</span>(<span class="dv">9</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">1</span>)<span class="op">/</span><span class="dv">16</span></span>
+<span id="cb22-4"><a href="tests-du-khi-deux.html#cb22-4"></a><span class="kw">chisq.test</span>(Nk,<span class="dt">p=</span>ptheo) </span></code></pre></div>
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  Nk
+X-squared = 0.47002, df = 3, p-value = 0.9254</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="tests-du-khi-deux.html#cb24-1"></a><span class="kw">sum</span>(((Nk <span class="op">-</span><span class="st"> </span>(n<span class="op">*</span>ptheo))<span class="op">^</span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span>(n<span class="op">*</span>ptheo)) </span></code></pre></div>
+<pre><code>[1] 0.470024</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="tests-du-khi-deux.html#cb26-1"></a><span class="kw">qchisq</span>(<span class="fl">0.95</span>,<span class="dv">3</span>)</span></code></pre></div>
+<pre><code>[1] 7.814728</code></pre>
+</div>
+</div>
+<div id="test-du-chi2-dadéquation-à-une-famille-de-lois" class="section level2">
+<h2><span class="header-section-number">3.2</span> Test du <span class="math inline">\(\chi^2\)</span> d’adéquation à une famille de lois</h2>
+<div id="principe-du-test" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Principe du test</h3>
+<p>Soit <span class="math inline">\(\Theta\)</span> un ouvert de <span class="math inline">\(\mathbb{R}^d\)</span> avec <span class="math inline">\(1\leq d&lt;K\)</span>.
+Etant donnée une famille de lois de probabilités <span class="math inline">\((\mathcal L(\theta))_{\theta\in\Theta}\)</span> définies sur <span class="math inline">\(\{a_1,\ldots,a_K\}\)</span>, on veut tester
+<span class="math display">\[
+\mathcal{H}_0 : \exists \theta\in\Theta,\ X\sim \mathcal L(\theta)
+\]</span>
+contre
+<span class="math display">\[
+\mathcal{H}_1 : \textrm{la loi de } X \textrm{ n&#39;appartient pas à } (\mathcal L(\theta))_{\theta\in\Theta}.
+\]</span></p>
+<p>Les lois <span class="math inline">\((\mathcal L(\theta))_{\theta\in\Theta}\)</span> sont caractérisées par les vecteurs de probabilités sur <span class="math inline">\(\{a_1,\ldots,a_K\}\)</span>
+<span class="math display">\[
+\mathcal P(\Theta)=\left\{ \mathbf{p}(\theta)=(p_1(\theta),\ldots,p_K(\theta));\ \theta\in\Theta \right\}.
+\]</span>
+On souhaite donc tester
+<span class="math display">\[
+\mathcal{H}_0 : \boldsymbol{\pi}\in \mathcal P(\Theta)  \textrm{ contre }   \mathcal{H}_1 : \boldsymbol{\pi}\notin {\mathcal P}(\Theta).
+\]</span></p>
+<p>L’idée du test est de remplacer <span class="math inline">\(\mathbf{p}^0\)</span> dans <span class="math inline">\(T_n\)</span> par la loi de <span class="math inline">\(\mathcal P(\Theta)\)</span> “la plus proche” de <span class="math inline">\(\boldsymbol{\pi}\)</span> au vu des données, c’est-à-dire la loi <span class="math inline">\(\mathbf{p}(\hat\theta)\)</span> où <span class="math inline">\(\hat\theta\)</span> est l’estimateur du maximum de vraisemblance pour le paramètre <span class="math inline">\(\theta\)</span> basé sur l’échantillon <span class="math inline">\((X_1,\ldots,X_n)\)</span> sous <span class="math inline">\(\mathcal{H}_0\)</span>. On considère donc la statistique suivante :
+<span class="math display">\[
+\hat T_n = n \sum_{k=1}^K \frac{\left(\hat{\pi}_k - p_k(\hat\theta)\right)^2}{p_k(\hat\theta)} = \sum_{k=1}^K \frac{\left(N_k - n p_k(\hat\theta)\right)^2}{n p_k(\hat\theta)}.
+\]</span></p>
+<p>Or, on a le résultat (admis) suivant :</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-45" class="theorem"><strong>Theorem 3.1  </strong></span>Supposons que</p>
+<ul>
+<li>Pour tout <span class="math inline">\(k=1,\ldots,K\)</span>, <span class="math inline">\(\theta\mapsto p_k(\theta)\)</span> est <span class="math inline">\({\mathcal C}^2\)</span> sur <span class="math inline">\(\Theta\)</span> et vérifie pour tout <span class="math inline">\(\theta\in \Theta\)</span>,
+<span class="math inline">\(p_k(\theta)\neq 0\)</span>.</li>
+<li>Pour tout <span class="math inline">\(\theta\in \Theta\)</span>, les vecteurs
+<span class="math inline">\(v_i=\left(\partial_i p_1(\theta), \ldots,\partial_i p_K(\theta)\right))&#39;\)</span> pour
+<span class="math inline">\(i=1,\ldots, d\)</span> forment une famille libre de <span class="math inline">\(\mathbb{R}^K\)</span> (bonne
+paramétrisation).</li>
+<li>Pour tout <span class="math inline">\(\theta\)</span>, si <span class="math inline">\(X_1,\ldots, X_n\)</span> sont i.i.d. de loi <span class="math inline">\(\mathbf{p}(\theta)\)</span>
+alors l’estimateur du maximum de vraisemblance <span class="math inline">\(\hat \theta\)</span> est consistant
+vers <span class="math inline">\(\theta\)</span>.</li>
+</ul>
+<p>Sous ces conditions, si <span class="math inline">\(X_1,\ldots, X_n\)</span> sont i.i.d. de loi <span class="math inline">\(\mathbf{p}(\theta)\)</span>
+alors
+<span class="math display">\[
+    \hat T_n \underset{n\rightarrow +\infty}{\stackrel{\mathcal L}{\longrightarrow}}\chi^2(K-d-1).
+\]</span></p>
+</div>
+<p>On construit le test du <span class="math inline">\(\chi^2\)</span> d’adéquation à <span class="math inline">\({\mathcal P}(\Theta)\)</span> de
+la manière suivante:</p>
+<p>on rejette l’hypothèse nulle si<br />
+<span class="math display">\[\hat T_n= \sum_{k=1}^K \frac{\left(N_k - n p_k(\hat\theta)\right)^2}{n p_k(\hat\theta)} &gt; x_{K-d-1,1-\alpha}.\]</span>
+La p-valeur vaut
+<span class="math display">\[
+p( (\hat T_n)^{obs}) = \mathbb{P}_{\mathcal{H}_0}(\hat T_n \geq  (\hat T_n)^{obs}) \underset{n \rightarrow +\infty}{\longrightarrow}    \mathbb{P}( \chi^2(K-d-1) \geq  (\hat T_n)^{obs}). 
+\]</span>
+Sous l’alternative:<br />
+<span class="math display">\[
+\frac{\hat T_n}{n} \geq \rm{d}^2( N/n, {\mathcal P}(\Theta)) \stackrel{p.s}{\longrightarrow} \rm{d}^2 (\boldsymbol{\pi}, {\mathcal P}(\Theta)),
+\]</span>
+et donc la puissance tend vers 1 dès que
+<span class="math inline">\(\rm{d}^2(\boldsymbol{\pi},{\mathcal P}(\Theta))&gt;0\)</span>.</p>
+<div class="remark">
+<p><span id="unlabeled-div-46" class="remark"><em>Remark</em>. </span>Le nombre de degrés de liberté de la loi asymptotique est donné par “nombre de modalités - 1 - nombre de paramètres à estimer sous <span class="math inline">\(\mathcal{H}_0\)</span>.”</p>
+</div>
+</div>
+<div id="exemple" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Exemple</h3>
+<p>Pour <span class="math inline">\(10000\)</span> fratries de <span class="math inline">\(4\)</span> enfants, on a relevé le nombre de garçons :</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>Nb de garçons <span class="math inline">\((k)\)</span></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>Effectifs <span class="math inline">\((N_k)\)</span></td>
+<td>572</td>
+<td>2329</td>
+<td>3758</td>
+<td>2632</td>
+<td>709</td>
+</tr>
+</tbody>
+</table>
+<!--
+\centerline{
+\begin{tabular}{|c| c c c c c|}
+\hline
+Nb de garçons $(k)$ & 0 & 1 & 2 & 3 & 4 \\
+\hline
+Effectifs $(N_k)$& 572 & 2329 & 3758 & 2632 & 709\\
+\hline
+\end{tabular}
+}
+\vspace*{0.3cm}
+-->
+<p>On décide de modéliser les naissances en supposant qu’elles sont indépendantes et que la probabilité d’avoir un garçon vaut <span class="math inline">\(\theta\in]0,1[\)</span>.
+On note <span class="math inline">\(X_i\)</span> le nombre de garçons dans la <span class="math inline">\(i\)</span>ème fratrie. On souhaite donc tester
+<span class="math display">\[
+\mathcal{H}_0 : X_i \sim \mathcal Bin(4,\theta) \textrm{ contre } \mathcal{H}_1 : X_i \textrm{ ne suit pas une loi } \mathcal Bin(4,\theta), \theta\in]0,1[.
+\]</span>
+Sous <span class="math inline">\(\mathcal{H}_0\)</span>, l’estimateur du maximum de vraisemblance pour <span class="math inline">\(\theta\)</span> est donné par <span class="math inline">\(\hat \theta = \frac{\overline{X}_n}{4}\)</span>. On peut alors calculer <span class="math inline">\(\mathbf{p}(\hat\theta) = (p_0(\hat\theta),\ldots,p_4(\hat\theta))\)</span> avec <span class="math inline">\(p_k(\hat\theta) = \mathbb{P}( U = k)\)</span> pour <span class="math inline">\(U\sim \mathcal Bin(4,\hat\theta)\)</span>. Sous <span class="math inline">\(\mathcal{H}_0\)</span>, la statistique de test
+<span class="math display">\[
+\hat T_n =  \sum_{k=0}^4 \frac{\left(N_k - n p_k(\hat\theta)\right)^2}{n p_k(\hat\theta)}  \underset{n\rightarrow +\infty}{\stackrel{\mathcal L}{\longrightarrow}}\chi^2(5-1-1) =\chi^2(3).
+\]</span></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="tests-du-khi-deux.html#cb28-1"></a>classes =<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb28-2"><a href="tests-du-khi-deux.html#cb28-2"></a>Nk =<span class="st"> </span><span class="kw">c</span>(<span class="dv">572</span>,<span class="dv">2329</span>,<span class="dv">3758</span>,<span class="dv">2632</span>,<span class="dv">709</span>)</span>
+<span id="cb28-3"><a href="tests-du-khi-deux.html#cb28-3"></a>n =<span class="st"> </span><span class="kw">sum</span>(Nk)</span>
+<span id="cb28-4"><a href="tests-du-khi-deux.html#cb28-4"></a>pihat =<span class="st"> </span>Nk <span class="op">/</span><span class="st"> </span>n</span>
+<span id="cb28-5"><a href="tests-du-khi-deux.html#cb28-5"></a>thetahat =<span class="st"> </span><span class="kw">sum</span>(Nk <span class="op">*</span><span class="st"> </span>classes) <span class="op">/</span><span class="st"> </span>(n<span class="op">*</span><span class="dv">4</span>)</span>
+<span id="cb28-6"><a href="tests-du-khi-deux.html#cb28-6"></a>ptheo =<span class="st"> </span><span class="kw">dbinom</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">4</span>,<span class="dv">4</span>,thetahat)</span>
+<span id="cb28-7"><a href="tests-du-khi-deux.html#cb28-7"></a>Tobs =<span class="st"> </span><span class="kw">sum</span>(((Nk <span class="op">-</span><span class="st"> </span>(n<span class="op">*</span>ptheo))<span class="op">^</span><span class="dv">2</span>) <span class="op">/</span><span class="st"> </span>(n<span class="op">*</span>ptheo)) </span>
+<span id="cb28-8"><a href="tests-du-khi-deux.html#cb28-8"></a><span class="kw">print</span>(Tobs)</span></code></pre></div>
+<pre><code>[1] 0.9882779</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="tests-du-khi-deux.html#cb30-1"></a>val =<span class="st"> </span><span class="kw">chisq.test</span>(Nk,<span class="dt">p=</span>ptheo)  <span class="co"># Attention aux degrés de liberté ! </span></span>
+<span id="cb30-2"><a href="tests-du-khi-deux.html#cb30-2"></a><span class="kw">print</span>(val)</span></code></pre></div>
+<pre><code>
+    Chi-squared test for given probabilities
+
+data:  Nk
+X-squared = 0.98828, df = 4, p-value = 0.9116</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="tests-du-khi-deux.html#cb32-1"></a>pval =<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">pchisq</span>(val<span class="op">$</span>statistic,<span class="dv">3</span>)</span>
+<span id="cb32-2"><a href="tests-du-khi-deux.html#cb32-2"></a><span class="kw">print</span>(pval)</span></code></pre></div>
+<pre><code>X-squared 
+0.8040883 </code></pre>
+</div>
+</div>
+<div id="test-du-chi2-dindépendance" class="section level2">
+<h2><span class="header-section-number">3.3</span> Test du <span class="math inline">\(\chi^2\)</span> d’indépendance</h2>
+<div id="principe-du-test-1" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Principe du test</h3>
+<p>Soient <span class="math inline">\(X\)</span> et <span class="math inline">\(Y\)</span> deux variables aléatoires admettant un nombre fini de modalités, <span class="math inline">\(\{a_1,\ldots,a_K\}\)</span> et <span class="math inline">\(\{b_1,\ldots,b_L\}\)</span> respectivement. On considère <span class="math inline">\(n\)</span> couples aléatoires <span class="math inline">\((X_1,Y_1),\ldots,(X_n,Y_n)\)</span> indépendants et de même loi que <span class="math inline">\((X,Y)\)</span>.
+On souhaite tester
+<span class="math display">\[
+\mathcal{H}_0 : X \textrm{ et } Y \textrm{ sont indépendantes contre } \mathcal{H}_1 : X \textrm{ et } Y \textrm{ ne sont pas indépendantes}. 
+\]</span></p>
+<p>On va ici donner une idée de la construction de la statistique de test. On rappelle tout d’abord que la loi du couple <span class="math inline">\((X,Y)\)</span> est caractérisée par les probabilités
+<span class="math display">\[
+    \mathbb{P}(X=a_k,Y=b_l) \textrm{ pour tout } k=1,\ldots,K,\ l=1,\ldots,L.
+\]</span>
+On est sous <span class="math inline">\(\mathcal{H}_0\)</span> quand <span class="math inline">\(\forall (k,l),\ \mathbb{P}(X=a_k, Y=b_l) = \mathbb{P}(X=a_k) \mathbb{P}(Y=b_l)\)</span> et sous <span class="math inline">\(\mathcal{H}_1\)</span> si <span class="math inline">\(\exists (k,l),\ \mathbb{P}(X=a_k, Y=b_l) \neq \mathbb{P}(X=a_k) \mathbb{P}(Y=b_l)\)</span>.</p>
+<p>On introduit les variables aléatoires suivantes :</p>
+<ul>
+<li><span class="math inline">\(N_{k,l} = \sum_{i=1}^n \mathbb{1}_{X_i = a_k, Y_i = b_l}\)</span></li>
+<li><span class="math inline">\(N_{k,.} = \sum_{i=1}^n \mathbb{1}_{X_i = a_k} = \sum_{l=1}^L N_{k,l}\)</span></li>
+<li><span class="math inline">\(N_{.,l} = \sum_{i=1}^n \mathbb{1}_{Y_i = b_l} = \sum_{k=1}^K N_{k,l}\)</span></li>
+</ul>
+<p>On peut alors estimer <span class="math inline">\(\mathbb{P}(X=a_k, Y=b_l)\)</span> par <span class="math inline">\(N_{k,l}/n\)</span> et <span class="math inline">\(\mathbb{P}(X=a_k) \mathbb{P}(Y=b_l)\)</span> par <span class="math inline">\(N_{k,.} N_{.,l} / n^2\)</span>. En reprenant le même raisonnement que dans les sections précédentes, on obtient la statistique de test suivante :
+<span class="math display">\[
+I_n = n \sum_{k=1}^K \sum_{l=1}^L \frac{\left(\frac{N_{k,l}}{n}    -  \frac{N_{k,.} N_{.,l}}{n^2}   \right)^2}{ \frac{N_{k,.} N_{.,l}}{n^2} } = \sum_{k=1}^K \sum_{l=1}^L \frac{\left(N_{k,l}    -  \frac{N_{k,.} N_{.,l}}{n}   \right)^2}{ \frac{N_{k,.} N_{.,l}}{n} }. 
+\]</span></p>
+</div>
+<div id="procédure-de-test-2" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Procédure de test</h3>
+<div class="theoreme">
+<p>On suppose que <span class="math inline">\(\forall k,\ \mathbb{P}(X=a_k)&gt;0\)</span> et <span class="math inline">\(\forall l,\ \mathbb{P}(Y=b_l)&gt;0\)</span>. Alors, sous <span class="math inline">\(\mathcal{H}_0\)</span>,
+<span class="math display">\[
+I_n \underset{n\rightarrow +\infty}{\stackrel{\mathcal L}{\longrightarrow}}\chi^2((K-1)(L-1)).
+\]</span></p>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-47" class="remark"><em>Remark</em>. </span>Pour retrouver rapidement le nombre de degrés de liberté, il faut remarquer que le nombre de modalités du couple <span class="math inline">\((X, Y)\)</span> vaut <span class="math inline">\(K L\)</span>. Et sous <span class="math inline">\(\mathcal{H}_0\)</span>, comme <span class="math inline">\(\forall (k,l),\ \mathbb{P}(X=a_k, Y=b_l) = \mathbb{P}(X=a_k)\mathbb{P}(Y=b_l)\)</span>, il faut estimer les <span class="math inline">\(\mathbb{P}(X=a_k)\)</span> pour <span class="math inline">\(k=1,\ldots,K-1\)</span> et les <span class="math inline">\(\mathbb{P}(Y=b_l)\)</span> pour <span class="math inline">\(l=1,\ldots, L-1\)</span>. Ainsi le nombre de degrés de liberté est <span class="math inline">\((KL-1) - [(K-1)+(L-1)] = (K-1)(L-1)\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-48" class="proposition"><strong>Proposition 3.4  </strong></span>Soit <span class="math inline">\(\alpha\in]0,1[\)</span>. Le test de région de rejet
+<span class="math display">\[
+\mathcal R_\alpha = \{ I_n &gt; x_{(K-1)(L-1),1-\alpha} \}
+\]</span>
+est un test de niveau asymptotique <span class="math inline">\(\alpha\)</span> pour tester <span class="math inline">\(\mathcal{H}_0\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>.</p>
+</div>
+</div>
+<div id="exemple-1" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Exemple</h3>
+<p>Une enquête a été réalisée auprès d’un échantillon de <span class="math inline">\(250\)</span> personnes au sujet de l’abaissement à 16 ans du droit de vote. Les réponses ont été classées suivant le niveau d’instruction des personnes interrogées :</p>
+<table>
+<thead>
+<tr class="header">
+<th>Niveau d’instruction</th>
+<th>Pour</th>
+<th>Contre</th>
+<th><span class="math inline">\(N_{k.}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Brevet</td>
+<td>10</td>
+<td>15</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td>Bac</td>
+<td>20</td>
+<td>85</td>
+<td>105</td>
+</tr>
+<tr class="odd">
+<td>Bac +2 et plus</td>
+<td>20</td>
+<td>100</td>
+<td>120</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(N_{.l}\)</span></td>
+<td>50</td>
+<td>200</td>
+<td>250</td>
+</tr>
+</tbody>
+</table>
+<!--
+\centerline{
+\begin{tabular}{|c|c|c|c|}
+\hline
+Niveau d'instruction &Pour &Contre & $N_{k.}$\\
+\hline
+Brevet &10 &15 & 25\\
+Bac &20 &85 & 105\\
+Bac +2 et plus &20 &100 & 120\\
+\hline
+$N_{.l}$ & 50 & 200 & 250\\
+\hline
+\end{tabular}
+}
+\vspace*{0.3cm}
+-->
+<p>Peut-on affirmer, au risque d’erreur de <span class="math inline">\(5\%\)</span>, qu’il existe une relation entre l’opinion d’une personne sur cette question et son niveau d’instruction ?</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="tests-du-khi-deux.html#cb34-1"></a>contingence =<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">20</span>,<span class="dv">15</span>,<span class="dv">85</span>,<span class="dv">100</span>),<span class="dt">ncol=</span><span class="dv">2</span>)</span>
+<span id="cb34-2"><a href="tests-du-khi-deux.html#cb34-2"></a><span class="kw">chisq.test</span>(contingence)</span></code></pre></div>
+<pre><code>
+    Pearson&#39;s Chi-squared test
+
+data:  contingence
+X-squared = 7.1429, df = 2, p-value = 0.02812</code></pre>
+</div>
+</div>
+<div id="test-dhomogénéité" class="section level2">
+<h2><span class="header-section-number">3.4</span> Test d’homogénéité</h2>
+<div id="principe-du-test-2" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> Principe du test</h3>
+<p>Soit <span class="math inline">\(E_1, \ldots, E_L\)</span> <span class="math inline">\(L\)</span>-échantillons indépendants de lois discrètes sur le même support <span class="math inline">\(\{a_1,\ldots,a_K\}\)</span>. On note <span class="math inline">\(\boldsymbol{\pi}_l\)</span> la loi discrète de l’échantillon <span class="math inline">\(E_l=(X_{l,1},\ldots,X_{l,n_l})\)</span> de taille <span class="math inline">\(n_l\)</span>.
+On veut tester
+<span class="math display">\[
+\mathcal{H}_0: \textrm{ les échantillons sont issus de la même loi } (\boldsymbol{\pi}_1=\ldots=\boldsymbol{\pi}_L)
+\]</span>
+contre
+<span class="math display">\[
+\mathcal{H}_1: \textrm{ les échantillons ne sont pas issus de la même loi } (\exists j\neq l,\ \boldsymbol{\pi}_j \neq \boldsymbol{\pi}_l)
+\]</span></p>
+</div>
+<div id="procédure-de-test-3" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> Procédure de test</h3>
+<p>On note <span class="math inline">\(N_{k,l} = \sum_{i=1}^{n_l} \mathbb{1}_{X_{l,i} = a_k}\)</span>, <span class="math inline">\(N_{k,.}= \sum_{l=1}^{L} N_{k,l}\)</span> et <span class="math inline">\(N_{.,l}=\sum_{k=1}^K N_{k,l}=n_\ell\)</span>.
+On considère alors la statistique de test :
+<span class="math display">\[
+J_n =  \sum_{k=1}^K \sum_{\ell=1}^L \frac{\left(N_{k,l}    -  \frac{N_{k,.} N_{.,l}}{n}   \right)^2}{ \frac{N_{k,.} N_{.,l}}{n} }. 
+\]</span></p>
+<div class="theoreme">
+<p>On suppose que <span class="math inline">\(\forall k,\forall l, \boldsymbol{\pi}_{l,k}=\mathbb{P}(X_{l,i}=a_k)&gt;0\)</span>. Alors, sous <span class="math inline">\(\mathcal{H}_0\)</span>,
+<span class="math display">\[
+J_n \underset{n\rightarrow +\infty}{\stackrel{\mathcal L}{\longrightarrow}}\chi^2((K-1)(L-1)).
+\]</span></p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-49" class="proposition"><strong>Proposition 3.5  </strong></span>Soit <span class="math inline">\(\alpha\in]0,1[\)</span>. Le test de région de rejet
+<span class="math display">\[
+\mathcal R_\alpha = \{ J_n &gt; x_{(K-1)(L-1),1-\alpha} \}
+\]</span>
+est un test de niveau asymptotique <span class="math inline">\(\alpha\)</span> pour tester <span class="math inline">\(\mathcal{H}_0\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>.</p>
+</div>
+</div>
+<div id="exemple-2" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> Exemple</h3>
+<p>Dans cet exemple, on souhaite savoir si le taux de participation à un club sportif des élèves de deux collèges <span class="math inline">\(A\)</span> et <span class="math inline">\(B\)</span> est identique ou pas.
+On a donc deux échantillons <span class="math inline">\(E_1=(X_{1,1},\ldots,X_{1,n_1})\)</span> et <span class="math inline">\(E_2=(X_{2,1},\ldots,X_{2,n_2})\)</span> avec
+<span class="math display">\[
+X_{l,i}= \textrm{ participation du } i \textrm{ème élève du collège } l \in \{a_1,a_2\}=\{&quot;oui&quot;,&quot;non&quot;\}.
+\]</span>
+On veut tester
+<span class="math display">\[
+\mathcal{H}_0 : \textrm{ les 2 populations sont homogènes (même taux de participation)}
+\]</span>
+contre
+<span class="math display">\[
+\mathcal{H}_1 : \textrm{ les 2 populations ne sont pas homogènes}.
+\]</span></p>
+<p>On a les effectifs observés suivants :</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Partic. / Ech</th>
+<th align="center">collège A</th>
+<th align="center">collège B</th>
+<th align="center"><span class="math inline">\(N_{k,.}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">oui</td>
+<td align="center">12</td>
+<td align="center">26</td>
+<td align="center">38</td>
+</tr>
+<tr class="even">
+<td align="left">non</td>
+<td align="center">38</td>
+<td align="center">34</td>
+<td align="center">72</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(N_{.,l}\)</span></td>
+<td align="center">50</td>
+<td align="center">60</td>
+<td align="center"><span class="math inline">\(n=110\)</span></td>
+</tr>
+</tbody>
+</table>
+<!--
+\centerline{
+\begin{tabular}{c | c c | c }
+Partic. / Ech & collège A & collège B & $N_{k,.}$\\
+\hline
+oui & 12 & 26 & 38 \\
+non & 38 & 34 & 72\\
+\hline
+$N_{.,l}$ & 50 & 60 & $n=110$
+\end{tabular}}
+-->
+<p>et les effectifs théoriques sont :</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Partic. / Ech</th>
+<th align="center">collège A</th>
+<th align="center">collège B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">oui</td>
+<td align="center">17,27</td>
+<td align="center">20,73</td>
+</tr>
+<tr class="even">
+<td align="center">non</td>
+<td align="center">32,73</td>
+<td align="center">39,27</td>
+</tr>
+</tbody>
+</table>
+<!--
+\vspace*{0.3cm}
+\centerline{
+\begin{tabular}{c | c | c  }
+Partic. / Ech & collège A & collège B \\
+\hline
+oui & 17,27 & 20,73  \\
+non & 32,73 & 39,27 \\
+\end{tabular}}
+-->
+<p>La statistique de test observée vaut donc
+<span class="math display">\[(J_n)^{obs} = \frac{(12-17,27)^2}{17,27} + \ldots + \frac{(34-39,27)^2}{39,27}=4,504 &gt; x_{1,0.95}=3.84\]</span>
+donc on rejette <span class="math inline">\(\mathcal{H}_0\)</span>, le taux de participation à un club sportif est différent entre les deux collèges.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Bookdown-poly.pdf", "Bookdown-poly.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 2 Tests basés sur la fonction de répartition empirique et sur les rangs | Tests statistiques, la suite …</title>
+  <meta name="description" content="Chapitre 2 Tests basés sur la fonction de répartition empirique et sur les rangs | Tests statistiques, la suite …" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 2 Tests basés sur la fonction de répartition empirique et sur les rangs | Tests statistiques, la suite …" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 2 Tests basés sur la fonction de répartition empirique et sur les rangs | Tests statistiques, la suite …" />
+  
+  
+  
+
+<meta name="author" content="Cathy Maugis-Rabusseau (INSA Toulouse / IMT)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="Rappels.html"/>
+<link rel="next" href="tests-du-khi-deux.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">UF Elements de modélisation statistique</a></li>
+<li>      <img src="image/LogoInsaToulouse.jpg" height="20px" align="right"/>      </li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Préface</a></li>
+<li class="chapter" data-level="1" data-path="Rappels.html"><a href="Rappels.html"><i class="fa fa-check"></i><b>1</b> Rappels sur les tests</a><ul>
+<li class="chapter" data-level="1.1" data-path="Rappels.html"><a href="Rappels.html#rappels-généraux-sur-les-tests-statistiques"><i class="fa fa-check"></i><b>1.1</b> Rappels généraux sur les tests statistiques</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="Rappels.html"><a href="Rappels.html#hypothèse-nulle-et-hypothèse-alternative"><i class="fa fa-check"></i><b>1.1.1</b> Hypothèse nulle et hypothèse alternative</a></li>
+<li class="chapter" data-level="1.1.2" data-path="Rappels.html"><a href="Rappels.html#tests-statistiques"><i class="fa fa-check"></i><b>1.1.2</b> Tests statistiques</a></li>
+<li class="chapter" data-level="1.1.3" data-path="Rappels.html"><a href="Rappels.html#erreur-de-première-espèce-et-p-valeur"><i class="fa fa-check"></i><b>1.1.3</b> Erreur de première espèce et p-valeur</a></li>
+<li class="chapter" data-level="1.1.4" data-path="Rappels.html"><a href="Rappels.html#erreur-de-seconde-espèce-et-puissance"><i class="fa fa-check"></i><b>1.1.4</b> Erreur de seconde espèce et puissance</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="Rappels.html"><a href="Rappels.html#tests-paramétriques-mic3"><i class="fa fa-check"></i><b>1.2</b> Tests paramétriques (MIC3)</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><i class="fa fa-check"></i><b>2</b> Tests basés sur la fonction de répartition empirique et sur les rangs</a><ul>
+<li class="chapter" data-level="2.1" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#rappels"><i class="fa fa-check"></i><b>2.1</b> Rappels</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#fonction-de-répartition-et-quantiles"><i class="fa fa-check"></i><b>2.1.1</b> Fonction de répartition et quantiles</a></li>
+<li class="chapter" data-level="2.1.2" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#fonction-de-répartition-empirique"><i class="fa fa-check"></i><b>2.1.2</b> Fonction de répartition empirique</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#test-de-kolmogorov-de-comparaison-ou-dadéquation"><i class="fa fa-check"></i><b>2.2</b> Test de Kolmogorov de comparaison ou d’adéquation</a></li>
+<li class="chapter" data-level="2.3" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#tests-de-comparaison-de-deux-échantillons"><i class="fa fa-check"></i><b>2.3</b> Tests de comparaison de deux échantillons</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#tests-de-kolmogorov-smirnov"><i class="fa fa-check"></i><b>2.3.1</b> Tests de Kolmogorov-Smirnov</a></li>
+<li class="chapter" data-level="2.3.2" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#test-de-wilcoxon--mann-whitney"><i class="fa fa-check"></i><b>2.3.2</b> Test de Wilcoxon- Mann-Whitney</a></li>
+<li class="chapter" data-level="2.3.3" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#test-de-la-médiane"><i class="fa fa-check"></i><b>2.3.3</b> Test de la médiane</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#tests-de-normalité"><i class="fa fa-check"></i><b>2.4</b> Tests de normalité</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#méthode-graphique-droite-de-henry"><i class="fa fa-check"></i><b>2.4.1</b> Méthode graphique : droite de Henry</a></li>
+<li class="chapter" data-level="2.4.2" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#test-de-normalité-de-kolmogorov-smirnov-de-lilliefors"><i class="fa fa-check"></i><b>2.4.2</b> Test de normalité de Kolmogorov-Smirnov (de Lilliefors)</a></li>
+<li class="chapter" data-level="2.4.3" data-path="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#test-de-shapiro-wilk"><i class="fa fa-check"></i><b>2.4.3</b> Test de Shapiro-Wilk</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html"><i class="fa fa-check"></i><b>3</b> Tests du khi-deux</a><ul>
+<li class="chapter" data-level="3.1" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#test-dajustement-du-khi-deux"><i class="fa fa-check"></i><b>3.1</b> Test d’ajustement du khi-deux</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#objectif-et-principe-du-test"><i class="fa fa-check"></i><b>3.1.1</b> Objectif et principe du test</a></li>
+<li class="chapter" data-level="3.1.2" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#lien-avec-la-loi-multinomiale"><i class="fa fa-check"></i><b>3.1.2</b> Lien avec la loi multinomiale</a></li>
+<li class="chapter" data-level="3.1.3" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#procédure-de-test-1"><i class="fa fa-check"></i><b>3.1.3</b> Procédure de test</a></li>
+<li class="chapter" data-level="3.1.4" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#exemple-de-mendel"><i class="fa fa-check"></i><b>3.1.4</b> Exemple de Mendel</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#test-du-chi2-dadéquation-à-une-famille-de-lois"><i class="fa fa-check"></i><b>3.2</b> Test du <span class="math inline">\(\chi^2\)</span> d’adéquation à une famille de lois</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#principe-du-test"><i class="fa fa-check"></i><b>3.2.1</b> Principe du test</a></li>
+<li class="chapter" data-level="3.2.2" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#exemple"><i class="fa fa-check"></i><b>3.2.2</b> Exemple</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#test-du-chi2-dindépendance"><i class="fa fa-check"></i><b>3.3</b> Test du <span class="math inline">\(\chi^2\)</span> d’indépendance</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#principe-du-test-1"><i class="fa fa-check"></i><b>3.3.1</b> Principe du test</a></li>
+<li class="chapter" data-level="3.3.2" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#procédure-de-test-2"><i class="fa fa-check"></i><b>3.3.2</b> Procédure de test</a></li>
+<li class="chapter" data-level="3.3.3" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#exemple-1"><i class="fa fa-check"></i><b>3.3.3</b> Exemple</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#test-dhomogénéité"><i class="fa fa-check"></i><b>3.4</b> Test d’homogénéité</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#principe-du-test-2"><i class="fa fa-check"></i><b>3.4.1</b> Principe du test</a></li>
+<li class="chapter" data-level="3.4.2" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#procédure-de-test-3"><i class="fa fa-check"></i><b>3.4.2</b> Procédure de test</a></li>
+<li class="chapter" data-level="3.4.3" data-path="tests-du-khi-deux.html"><a href="tests-du-khi-deux.html#exemple-2"><i class="fa fa-check"></i><b>3.4.3</b> Exemple</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li>Cathy Maugis-Rabusseau</li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tests statistiques, la suite …</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs" class="section level1">
+<h1><span class="header-section-number">Chapitre 2</span> Tests basés sur la fonction de répartition empirique et sur les rangs</h1>
+<blockquote>
+<p>Les slides associés à ce chapitre sont disponibles <a href="image/SlidesTestsPart1.pdf">ici</a></p>
+</blockquote>
+<div id="rappels" class="section level2">
+<h2><span class="header-section-number">2.1</span> Rappels</h2>
+<div id="fonction-de-répartition-et-quantiles" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Fonction de répartition et quantiles</h3>
+<p>Soit <span class="math inline">\(X\)</span> une v.a.r de fonction de répartition <span class="math inline">\(F\)</span>. On rappelle que, pour tout <span class="math inline">\(t\in \mathbb{R}\)</span>,
+<span class="math display">\[
+F(t) = \mathbb{P}(X\leq t).
+\]</span></p>
+<div class="definition">
+<p><span id="def:unlabeled-div-10" class="definition"><strong>Definition 2.1  </strong></span>Soit <span class="math inline">\(F\)</span> une fonction de répartition. On définit la <strong>fonction quantile (ou inverse généralisée)</strong> <span class="math inline">\(F^{-1}\)</span> de <span class="math inline">\(F\)</span> par
+<span class="math display">\[
+\forall p \in [0,1],\ F^{-1}(p) = \mbox{inf} \left\{t\in \mathbb{R};\ F(t) \geq p  \right\}.
+\]</span></p>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-11" class="remark"><em>Remark</em>. </span>Si <span class="math inline">\(F\)</span> est une bijection, <span class="math inline">\(F^{-1}\)</span> est la bijection réciproque.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-12" class="exercise"><strong>Exercise 2.1  </strong></span>Calculez <span class="math inline">\(F^{-1}\)</span> pour la loi de Bernoulli de paramètre <span class="math inline">\(\theta\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-13" class="proposition"><strong>Proposition 2.1  </strong></span>Soit <span class="math inline">\(t\in\mathbb{R}\)</span> et <span class="math inline">\(p_0\in]0,1[\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(F\)</span> est croissante, continue à droite, <span class="math inline">\(\underset{t\rightarrow -\infty}{\lim}F(t)=0\)</span>, <span class="math inline">\(\underset{t\rightarrow +\infty}{\lim}F(t)=1\)</span>.</li>
+<li><span class="math inline">\(\{t\in\mathbb{R};\ F(t)\geq p_0\} = [F^{-1}(p_0), +\infty[\)</span></li>
+<li><span class="math inline">\(F^{-1}\)</span> est croissante</li>
+<li><span class="math inline">\(F\circ F^{-1}(p_0)\geq p_0\)</span> avec égalité si <span class="math inline">\(p_0\in F(\mathbb{R})\)</span>.</li>
+<li><span class="math inline">\(F(t)\geq p_0 \Leftrightarrow t \geq F^{-1}(p_0)\)</span></li>
+<li>Si <span class="math inline">\(U\sim\mathcal{U}([0,1])\)</span>, <span class="math inline">\(F^{-1}(U)\)</span> a pour fonction de répartition <span class="math inline">\(F\)</span>.</li>
+</ol>
+</div>
+</div>
+<div id="fonction-de-répartition-empirique" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Fonction de répartition empirique</h3>
+<p>Soit <span class="math inline">\(X_1,X_2, \ldots X_n\)</span> une suite de variables aléatoires réelles i.i.d. de fonction de répartition <span class="math inline">\(F\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-14" class="definition"><strong>Definition 2.2  </strong></span>On appelle <strong>fonction de répartition empirique</strong> associée au <span class="math inline">\(n\)</span>-échantillon
+<span class="math inline">\((X_1,X_2, \ldots X_n)\)</span> la fonction
+<span class="math display">\[ 
+    \hat{F}_n(t)=\frac 1n \sum_{i=1}^n \mathbb{1}_{X_i \leq t}.
+\]</span></p>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-15" class="remark"><em>Remark</em>. </span>La fonction de répartition empirique de l’échantillon <span class="math inline">\((X_1,\ldots,X_n)\)</span> s’exprime également à partir des statistiques d’ordre <span class="math inline">\(X_{(1)}\leq X_{(2)}\leq \ldots\leq X_{(n)}\)</span> :
+<span class="math display">\[
+    \hat{F}_n(t)=\frac 1n \sum_{i=1}^n \mathbb{1}_{X_{(i)} \leq t}
+\]</span>
+ce qui permet de tracer facilement son graphique (voir Figure <a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#fig:fremp">2.1</a>).</p>
+</div>
+<div class="figure"><span id="fig:fremp"></span>
+<img src="Bookdown-poly_files/figure-html/fremp-1.png" alt="\label{fremp} Fonction de répartition empirique pour l'échantillon observé *(2, 3.5, 1, 4, 2.3, 6, 5.5)*" width="672" />
+<p class="caption">
+Figure 2.1:  Fonction de répartition empirique pour l’échantillon observé <em>(2, 3.5, 1, 4, 2.3, 6, 5.5)</em>
+</p>
+</div>
+<p>Rappelons quelques propriétés de la fonction de répartition empirique.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-16" class="proposition"><strong>Proposition 2.2  </strong></span>Propriétés de la fonction <span class="math inline">\(\hat{F}_n(.)\)</span></p>
+<ul>
+<li><span class="math inline">\(\hat{F}_n\)</span> est croissante, continue à droite, <span class="math inline">\(\underset{t\rightarrow -\infty}{\lim}\hat{F}_n(t)=0\)</span>, <span class="math inline">\(\underset{t\rightarrow +\infty}{\lim}\hat F_n(t)=1\)</span>.</li>
+<li>Pour tout <span class="math inline">\(t\in\mathbb{R}\)</span>, <span class="math inline">\(n \hat{F}_n(t)\)</span> suit une loi binomiale de paramètre <span class="math inline">\((n, F(t))\)</span>.</li>
+<li>Pour tout <span class="math inline">\(t\in\mathbb{R}\)</span>, <span class="math inline">\(\hat{F}_n(t)\)</span> est un estimateur sans biais de <span class="math inline">\(F(t)\)</span>.</li>
+<li>Pour tout <span class="math inline">\(t\in\mathbb{R}\)</span>
+<span class="math display">\[ \mbox{Var}(\hat{F}_n(t))=\frac{F(t)(1-F(t))}{n} \underset{n\rightarrow +\infty}{\longrightarrow} 0.\]</span></li>
+<li>Pour tout <span class="math inline">\(t\in\mathbb{R}\)</span>, <span class="math inline">\(\hat{F}_n(t) \underset{n\rightarrow+\infty}{\stackrel{\mathbb{P}}{\longrightarrow}}F(t)\)</span></li>
+<li>On déduit du TLC que pour tout <span class="math inline">\(t\in\mathbb{R}\)</span> tel que <span class="math inline">\(F(t)(1-F(t))\neq 0\)</span>,
+<span class="math display">\[\sqrt{n} (\hat F_n(t)-F(t)) \underset{n\rightarrow+\infty}{\stackrel{\mathcal L}{\longrightarrow}} \mathcal{N} (0, F(t)(1-F(t))).\]</span></li>
+<li>Glivenko-Cantelli (admis)
+<span class="math display">\[
+\underset{t\in\mathbb{R}}{\sup}\  | \hat F_n(t) - F(t) | \underset{n \rightarrow +\infty}{\stackrel{p.s}{\longrightarrow}} 0.
+\]</span></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="test-de-kolmogorov-de-comparaison-ou-dadéquation" class="section level2">
+<h2><span class="header-section-number">2.2</span> Test de Kolmogorov de comparaison ou d’adéquation</h2>
+<p>Soit <span class="math inline">\(X_1, \ldots , X_n\)</span> des v.a.r i.i.d. de même loi que <span class="math inline">\(X\)</span>, de fonction de répartition <span class="math inline">\(F\)</span> supposée continue. On se donne une fonction de répartition <span class="math inline">\(F_0\)</span> supposée continue sur <span class="math inline">\(\mathbb{R}\)</span> et <span class="math inline">\(Y_0\)</span> une v.a.r de fonction de répartition <span class="math inline">\(F_0\)</span>.</p>
+<p>On souhaite construire un test de <span class="math inline">\(\mathcal{H}_0\)</span>: “<span class="math inline">\(X\)</span> et <span class="math inline">\(Y_0\)</span> ont la même loi (<span class="math inline">\(F=F_0\)</span>)” contre :</p>
+<ul>
+<li><span class="math inline">\(\mathcal{H}_1\)</span> : <span class="math inline">\(X\)</span> et <span class="math inline">\(Y_0\)</span> ne suivent pas la même loi (<span class="math inline">\(F\neq F_0\)</span>)</li>
+<li><span class="math inline">\(\mathcal{H}_1^{+}\)</span> : <span class="math inline">\(X\)</span> a tendance à prendre des valeurs plus petites que <span class="math inline">\(Y_0\)</span> (<span class="math inline">\(F \geq F_0\)</span>)</li>
+<li><span class="math inline">\(\mathcal{H}_1^{-}\)</span> : <span class="math inline">\(X\)</span> a tendance à prendre des valeurs plus grandes que <span class="math inline">\(Y_0\)</span> (<span class="math inline">\(F \leq F_0\)</span>)</li>
+</ul>
+<div class="figure"><span id="fig:IllustHyp"></span>
+<img src="Bookdown-poly_files/figure-html/IllustHyp-1.png" alt="\label{IllustHyp} Fonction de répartition (à gauche) et densité (à droite) pour la loi N(0,1) et  N(3,1)" width="672" />
+<p class="caption">
+Figure 2.2:  Fonction de répartition (à gauche) et densité (à droite) pour la loi N(0,1) et N(3,1)
+</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-17" class="example"><strong>Example 2.1  </strong></span>On mesure les durées de vie de 20 ampoules d’un même type. Les résultats, en heures, sont :
+673, 389, 1832, 570, 522, 2694, 3683, 644, 1531, 2916.<br />
+Est-ce que l’on peut affirmer, au risque 5<span class="math inline">\(\%\)</span>, que la durée de vie d’une ampoule de ce type ne suit pas la loi exponentielle <span class="math inline">\(\mathcal E(1/1500)\)</span> ?<br />
+On modélise donc la durée de vie de la <span class="math inline">\(i\)</span>ème ampoule par <span class="math inline">\(X_i\)</span>, <span class="math inline">\(F\)</span> est sa fonction de répartition inconnue et <span class="math inline">\(F_0\)</span> est la fonction de répartition de la loi <span class="math inline">\(\mathcal E(1/1500)\)</span>.</p>
+</div>
+<p>L’idée du test de Kolmogorov est d’estimer la fonction de répartition inconnue <span class="math inline">\(F\)</span> par la fonction de répartition empirique <span class="math inline">\(\hat F_n\)</span> de l’échantillon <span class="math inline">\((X_1,\ldots,X_n)\)</span> et de comparer cette fonction de répartition empirique avec la fonction de répartition donnée <span class="math inline">\(F_0\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-18" class="definition"><strong>Definition 2.3  </strong></span>Pour tester <span class="math inline">\(\mathcal{H}_0\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>, le <strong>test de Kolmogorov</strong> est fondé sur la statistique de test
+<span class="math display">\[D_n=\sup_{t \in \mathbb{R}} | \hat F_n(t)-F_0(t)|.\]</span>
+La région de rejet au niveau <span class="math inline">\(\alpha\)</span> est alors de la forme <span class="math inline">\(\mathcal{R}_{\alpha}=\{D_n \geq d_{n,1-\alpha}\}\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-19" class="proposition"><strong>Proposition 2.3  </strong></span>Propriétés de la statistique <span class="math inline">\(D_n\)</span></p>
+<ul>
+<li>La loi de <span class="math inline">\(D_n\)</span> sous l’hypothèse <span class="math inline">\(H_0\)</span> (<span class="math inline">\(F=F_0\)</span>) est indépendante de <span class="math inline">\(F_0\)</span>.</li>
+<li>Comme <span class="math inline">\(\hat F_n\)</span> est une fonction en escalier et que <span class="math inline">\(F_0\)</span> est croissante, l’écart maximal entre <span class="math inline">\(\hat F_n\)</span> et <span class="math inline">\(F_0\)</span> est atteint en l’un des sauts de <span class="math inline">\(\hat F_n\)</span>. Ainsi, avec
+<span class="math inline">\(X_{(1)}\leq \ldots \leq X_{(n)}\)</span> l’échantillon ordonné, <span class="math inline">\(X_{(0)}=-\infty\)</span> et <span class="math inline">\(X_{(n+1)}=+\infty\)</span>, on obtient que
+<span class="math display">\[
+  D_n=\max_{i=0,\ldots, n}\left\{\max \left( \left|\frac{i}{n}-F_0(X_{(i)})\right|; \left|\frac{i}{n}-F_0(X_{(i+1)})\right| \right)\right\},
+\]</span>
+ce qui permet de calculer facilement <span class="math inline">\(D_n\)</span>.</li>
+</ul>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-20" class="remark"><em>Remark</em>. </span>La loi de <span class="math inline">\(D_n\)</span> sous <span class="math inline">\(H_0\)</span> est tabulée. On trouve dans les tables les quantiles <span class="math inline">\(d_{n,1-\alpha}\)</span> tels que
+<span class="math display">\[\mathbb{P}_{H_0} (D_n  \geq d_{n,1-\alpha})\leq \alpha,\]</span>
+(en étant le plus proche possible de <span class="math inline">\(\alpha\)</span>). Ces tables sont obtenues à partir de simulations de <span class="math inline">\(D_n\)</span>, sous l’hypothèse que les <span class="math inline">\(X_i\)</span> sont i.i.d. de loi uniforme sur <span class="math inline">\([0,1]\)</span> (<span class="math inline">\(F_0=\mathbb{1}_{[0,1]}\)</span>). Si la loi de <span class="math inline">\(D_n\)</span> dépendait de <span class="math inline">\(F_0\)</span>, il faudrait construire une table pour chaque loi <span class="math inline">\(F_0\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-21" class="proposition"><strong>Proposition 2.4  </strong></span>De la même façon, pour tester</p>
+<ul>
+<li><span class="math inline">\(\mathcal{H}_0 : F=F_0\)</span> contre <span class="math inline">\(\mathcal{H}^{+} : F \geq F_0\)</span>, on utilise
+<span class="math display">\[D_n^{+}= \sup_{t \in \mathbb{R}} (\hat{F}_n(t)-F_0(t))\]</span>
+et la région de rejet de niveau <span class="math inline">\(\alpha\)</span> est de la forme <span class="math inline">\(\mathcal R_\alpha = \{D_n^{+} &gt; d_{n,1-\alpha}^{+}\}\)</span>.</li>
+<li><span class="math inline">\(\mathcal{H}_0 : F=F_0\)</span> contre <span class="math inline">\(\mathcal{H}^{-} : F \leq F_0\)</span>, on utilise
+<span class="math display">\[D_n^{-}= \sup_{t \in \mathbb{R}} (F_0(t) - \hat{F}_n(t))\]</span>
+et la région de rejet de niveau <span class="math inline">\(\alpha\)</span> est de la forme <span class="math inline">\(\mathcal R_\alpha = \{D_n^{-} &gt; d_{n,1-\alpha}^{-}\}\)</span>.</li>
+</ul>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-22" class="proposition"><strong>Proposition 2.5  </strong></span>(admise)
+<span class="math display">\[
+\begin{array}{l l }
+\forall \lambda &gt;0, \ \mathbb{P}_{\mathcal{H}_0}(\sqrt{n} D_n^+ \geq \lambda) \underset{n \rightarrow +\infty}{\longrightarrow}  \exp(-2\lambda^2)  &amp; \mbox{ Smirnov (1942)} \\
+\forall \lambda &gt;0, \mathbb{P}_{\mathcal{H}_0}(\sqrt{n} D_n \geq \lambda)  \underset{n \rightarrow +\infty}{\longrightarrow} 2 \sum_{k=1}^{\infty}(-1)^{k+1}\exp(-2k^2 \lambda^2)  &amp; \mbox{ Kolmogorov (1933)} \\
+\forall \lambda &gt;0, \ \mathbb{P}_{\mathcal{H}_0}(\sqrt{n} D_n \geq \lambda)\leq 2 \exp(-2\lambda^2)    &amp; \mbox{ Massart (1990) }
+\end{array}
+\]</span></p>
+</div>
+<div class="example">
+<span id="exm:unlabeled-div-23" class="example"><strong>Example 2.2  </strong></span>Revenons à notre exemple sur la durée de vie des ampoules. La fonction de répartition empirique et la fonction de répartition de la loi <span class="math inline">\(\mathcal E(1/1500)\)</span> sont représentées sur la Figure <a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#fig:Ampoule">2.3</a>.
+On met en place un test de Kolmogorov pour tester
+<span class="math display">\[
+\mathcal{H}_0 : F = F_0 \textrm{ contre } \mathcal{H}_1 : F \neq F_0,
+\]</span>
+où <span class="math inline">\(F_0\)</span> est la fonction de répartition de la loi exponentielle <span class="math inline">\(\mathcal E(1/1500)\)</span>, à l’aide de la fonction <code>ks.test</code>. La p-valeur valant <span class="math inline">\(0.597\)</span>, on ne rejette pas l’hypothèse nulle au niveau <span class="math inline">\(5\%\)</span>.<br />
+
+<div class="figure"><span id="fig:Ampoule"></span>
+<img src="Bookdown-poly_files/figure-html/Ampoule-1.png" alt="\label{Ampoule} Fonction de répartition empirique et fonction de répartition de la loi  E(1/1500) pour l'exemple de la durée de vie des ampoules." width="672" />
+<p class="caption">
+Figure 2.3:  Fonction de répartition empirique et fonction de répartition de la loi E(1/1500) pour l’exemple de la durée de vie des ampoules.
+</p>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb1-1"></a>Ampoule =<span class="st"> </span><span class="kw">c</span>(<span class="dv">673</span>, <span class="dv">389</span>, <span class="dv">1832</span>, <span class="dv">570</span>, <span class="dv">522</span>, <span class="dv">2694</span>, <span class="dv">3683</span>, <span class="dv">644</span>, <span class="dv">1531</span>, <span class="dv">2916</span>) </span>
+<span id="cb1-2"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb1-2"></a><span class="kw">ks.test</span>(Ampoule,pexp,<span class="dv">1</span><span class="op">/</span><span class="dv">1500</span>,<span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<pre><code>
+    One-sample Kolmogorov-Smirnov test
+
+data:  Ampoule
+D = 0.22843, p-value = 0.597
+alternative hypothesis: two-sided</code></pre>
+</div>
+</div>
+<div id="tests-de-comparaison-de-deux-échantillons" class="section level2">
+<h2><span class="header-section-number">2.3</span> Tests de comparaison de deux échantillons</h2>
+<p>On considère deux échantillons indépendants</p>
+<ul>
+<li><span class="math inline">\(X_1,\ldots, X_n\)</span> i.i.d. de fonction de répartition <span class="math inline">\(F\)</span></li>
+<li><span class="math inline">\(Y_1, \ldots, Y_m\)</span> i.i.d. de fonction de répartition <span class="math inline">\(G\)</span>.</li>
+</ul>
+<p>On note <span class="math inline">\(N=n+m\)</span>.</p>
+<p>Dans le cas de deux échantillons gaussiens (<span class="math inline">\(F\)</span> correspond à une loi normale <span class="math inline">\(\mathcal{N}(m_0, \sigma^2)\)</span> et <span class="math inline">\(G\)</span> à la loi <span class="math inline">\(\mathcal{N}(m_1, \sigma^2)\)</span>), on peut utiliser un test de Student pour tester <span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \neq G\)</span>. Nous nous plaçons ici dans un cadre non paramétrique, les lois des variables <span class="math inline">\(X_i\)</span> et <span class="math inline">\(Y_j\)</span> ne sont pas supposées connues.</p>
+<div id="tests-de-kolmogorov-smirnov" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Tests de Kolmogorov-Smirnov</h3>
+<p>Dans cette section, on souhaite tester <span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \neq G\)</span>. On note <span class="math inline">\(\hat F_n\)</span> la fonction de répartition empirique de l’échantillon <span class="math inline">\((X_1, \ldots, X_n)\)</span> et <span class="math inline">\(\hat G_m\)</span> celle de l’échantillon <span class="math inline">\((Y_1, \ldots, Y_m)\)</span>.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-24" class="definition"><strong>Definition 2.4  </strong></span>Le <strong>test de Kolmogorov-Smirnov</strong> est défini par la statistique de test
+<span class="math display">\[
+    D_{n,m}=\sup_{t \in \mathbb{R}} | \hat F_n(t)- \hat G_m(t)|.
+\]</span>
+La région de rejet au niveau <span class="math inline">\(\alpha\)</span> est de la forme <span class="math inline">\(\mathcal R_{\alpha} = \{ D_{n,m} \geq d_{n,m,1-\alpha} \}\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-25" class="proposition"><strong>Proposition 2.6  </strong></span>Si <span class="math inline">\(F\)</span> est continue, la loi de <span class="math inline">\(D_{n,m}\)</span> sous l’hypothèse nulle <span class="math inline">\(F=G\)</span> est indépendante de <span class="math inline">\(F\)</span>.
+Cette loi est tabulée.</p>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-26" class="remark"><em>Remark</em>. </span>Pour faire un test unilatéral (<span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \geq G\)</span>), on utilise la statistique de test
+<span class="math display">\[ 
+    D_{n,m}^+=\sup_{t \in \mathbb{R}} (\hat F_n(t)- \hat G_m(t)).
+\]</span>
+La région de rejet au niveau <span class="math inline">\(\alpha\)</span> est de la forme <span class="math inline">\(\mathcal R_{\alpha} = \{ D^+_{n,m} \geq d^+_{n,m,1-\alpha} \}\)</span>.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-27" class="example"><strong>Example 2.3  </strong></span>On souhaite comparer deux médicaments pour soulager la douleur post-opératoire. On a
+observé 16 patients, dont 8 ont pris le médicament A habituel, et les 8 autres un médicament B
+expérimental. Dans le tableau suivant sont reportés les temps (en heures) entre la prise du
+médicament et la sensation de soulagement.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">médicament A</th>
+<th align="center">médicament B</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">6.8</td>
+<td align="center">4.4</td>
+</tr>
+<tr class="even">
+<td align="center">3.1</td>
+<td align="center">2.5</td>
+</tr>
+<tr class="odd">
+<td align="center">5.8</td>
+<td align="center">2.8</td>
+</tr>
+<tr class="even">
+<td align="center">4.5</td>
+<td align="center">2.1</td>
+</tr>
+<tr class="odd">
+<td align="center">3.3</td>
+<td align="center">6.6</td>
+</tr>
+<tr class="even">
+<td align="center">4.7</td>
+<td align="center">1.5</td>
+</tr>
+<tr class="odd">
+<td align="center">4.2</td>
+<td align="center">4.8</td>
+</tr>
+<tr class="even">
+<td align="center">4.9</td>
+<td align="center">2.3</td>
+</tr>
+</tbody>
+</table>
+<p>Les fonctions de répartition empiriques des deux échantillons sont représentées en Figure <a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#fig:medicKS">2.4</a>.</p>
+<p>Si on veut tester une différence d’efficacité entre les deux médicaments
+<span class="math display">\[\mathcal{H}_0: F_A = F_B \textrm{ contre }\mathcal{H}_1: F_B\neq F_A\]</span></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb3-1"></a>mA =<span class="st"> </span><span class="kw">c</span>(<span class="fl">6.8</span>,<span class="fl">3.1</span>,<span class="fl">5.8</span>,<span class="fl">4.5</span>,<span class="fl">3.3</span>,<span class="fl">4.7</span>,<span class="fl">4.2</span>,<span class="fl">4.9</span>)</span>
+<span id="cb3-2"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb3-2"></a>mB =<span class="st"> </span><span class="kw">c</span>(<span class="fl">4.4</span>,<span class="fl">2.5</span>,<span class="fl">2.8</span>,<span class="fl">2.1</span>,<span class="fl">6.6</span>,<span class="fl">1.5</span>,<span class="fl">4.8</span>,<span class="fl">2.3</span>)</span>
+<span id="cb3-3"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb3-3"></a><span class="kw">ks.test</span>(mB, mA, <span class="dt">alternative=</span><span class="st">&quot;two.sided&quot;</span>)</span></code></pre></div>
+<pre><code>
+    Two-sample Kolmogorov-Smirnov test
+
+data:  mB and mA
+D = 0.625, p-value = 0.08702
+alternative hypothesis: two-sided</code></pre>
+<p>Si on veut tester si le médicament <span class="math inline">\(B\)</span> est plus efficace que le médicament <span class="math inline">\(A\)</span> :
+<span class="math display">\[\mathcal{H}_0: F_A = F_B \textrm{ contre }\mathcal{H}_1: F_B\geq F_A\]</span></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb5-1"></a><span class="kw">ks.test</span>(mB, mA, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)</span></code></pre></div>
+<pre><code>
+    Two-sample Kolmogorov-Smirnov test
+
+data:  mB and mA
+D^+ = 0.625, p-value = 0.04394
+alternative hypothesis: the CDF of x lies above that of y</code></pre>
+<div class="figure"><span id="fig:medicKS"></span>
+<img src="Bookdown-poly_files/figure-html/medicKS-1.png" alt="\label{medicKS} Fonction de répartition empirique pour le médicament A en rouge et le médicament B en bleu." width="672" />
+<p class="caption">
+Figure 2.4:  Fonction de répartition empirique pour le médicament A en rouge et le médicament B en bleu.
+</p>
+</div>
+</div>
+</div>
+<div id="test-de-wilcoxon--mann-whitney" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Test de Wilcoxon- Mann-Whitney</h3>
+<p>On va s’intéresser dans cette section au test de Mann-Whitney et celui de Wilcoxon (qui sont en fait équivalents) basés sur les rangs.
+Pour simplifier la présentation, nous allons supposer dans un premier temps qu’il n’y a pas d’ex-aequo dans les deux échantillons :</p>
+<ul>
+<li>les <span class="math inline">\(X_i\)</span> sont tous distincts</li>
+<li>les <span class="math inline">\(Y_j\)</span> sont tous distincts</li>
+<li>les <span class="math inline">\(X_i\)</span> sont distincts des <span class="math inline">\(Y_j\)</span> (<span class="math inline">\(\forall i\neq j, X_i\neq Y_j\)</span>).</li>
+</ul>
+<p>On reviendra sur le cas des ex-aequo en section <a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#subexaequo">2.3.2.3</a>.</p>
+<div id="test-de-mann-whitney" class="section level4">
+<h4><span class="header-section-number">2.3.2.1</span> Test de Mann-Whitney</h4>
+<p>Supposons que l’on souhaite tester <span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \geq G\)</span>. On suppose que <span class="math inline">\(F\)</span> et <span class="math inline">\(G\)</span> sont continues.</p>
+<p>Le principe du test de Mann-Whitney consiste à déterminer le nombre de couples <span class="math inline">\((X_i, Y_j)\)</span> pour lesquels <span class="math inline">\(Y_j &gt; X_i\)</span>. Sous <span class="math inline">\(\mathcal{H}_1\)</span>, pour tout <span class="math inline">\(t\)</span>, <span class="math inline">\(\mathbb{P}(Y\leq t) \leq P(X\leq t)\)</span> (avec parfois l’inégalité stricte), par conséquent pour tout <span class="math inline">\(t\)</span>, <span class="math inline">\(\mathbb{P}(Y&gt; t) \geq P(X &gt; t)\)</span> et le nombre de couples <span class="math inline">\((X_i, Y_j)\)</span> pour lesquels <span class="math inline">\(Y_j &gt; X_i\)</span> prend des valeurs plus grandes sous <span class="math inline">\(\mathcal{H}_1\)</span> que sous <span class="math inline">\(\mathcal{H}_0\)</span>.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-28" class="proposition"><strong>Proposition 2.7  </strong></span>On appelle <strong>test de Mann-Whitney</strong> pour <span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \geq G\)</span> le test défini à partir de la statistique
+<span class="math display">\[ 
+    MW_{X&lt;Y} = \sum_{i=1}^n \sum_{j=1}^m \mathbb{1}_{X_i &lt;Y_j}.
+\]</span>
+La région de rejet au niveau <span class="math inline">\(\alpha\)</span> est de la forme <span class="math inline">\(\mathcal R_{\alpha} = \{MW_{X&lt;Y}\geq u_{(n,m),1-\alpha} \}\)</span>.</p>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-29" class="remark"><em>Remark</em>. </span>La loi de <span class="math inline">\(MW_{X&lt;Y}\)</span> sous <span class="math inline">\(\mathcal{H}_0\)</span> peut être établie par récurrence (cf <span class="citation">Caperaa and Cutsem (<a href="#ref-CaperaaCutsem" role="doc-biblioref">1988</a>)</span>, p 126). On note
+<span class="math display">\[p_{n,m}(k)=\mathbb{P}_{\mathcal{H}_0}( MW_{X&lt;Y} =k) \mbox{ pour } k=0,1, \ldots, mn\]</span>
+<span class="math display">\[p_{n,0}(k)=p_{0,m}(k)=1  \mbox{ pour } k=0; =0 \mbox{ pour } k\neq 0.\]</span>
+Alors pour tout <span class="math inline">\(k\)</span>,
+<span class="math display">\[ (n+m)p_{n,m}(k)=n p_{n-1,m}(k)+ m p_{n,m-1}(k-n).\]</span>
+Cette formule de récurrence permet de calculer la loi de <span class="math inline">\(MW_{X&lt;Y}\)</span> sous <span class="math inline">\(\mathcal{H}_0\)</span>.</p>
+</div>
+<p>On peut aussi utiliser un résultat asymptotique.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-30" class="theorem"><strong>Theorem 2.1  ((Hajek (1968)) (admis)) </strong></span>Sous <span class="math inline">\(\mathcal{H}_0\)</span>,
+<span class="math display">\[\frac{MW_{X&lt;Y} -\mathbb{E}_{\mathcal{H}_0}[MW_{X&lt;Y}]}{\sqrt{\mbox{Var}_{\mathcal{H}_0}(MW_{X&lt;Y})}} \stackrel{\mathcal L}{\longrightarrow} \mathcal{N}(0,1)
+\mbox{ quand } n\rightarrow +\infty, n/(n+m) \rightarrow \lambda \in ]0,1[.\]</span></p>
+</div>
+<p>On utilise ce résultat en pratique si <span class="math inline">\(n, m \geq 8\)</span>. On a, sous l’hypothèse nulle <span class="math inline">\(\mathcal{H}_0\)</span> que
+<span class="math display">\[\mathbb{E}_{\mathcal{H}_0}[MW_{X &lt;Y}]= \frac{mn}{2} \textrm{ et }
+\mbox{Var}_{\mathcal{H}_0}(MW_{X &lt; Y})= mn \left(\frac{n+m+1}{12}\right).\]</span></p>
+<p>On peut faire le raisonnement similaire pour tester <span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \leq G\)</span>. Dans ce cas le nombre de couples <span class="math inline">\((X_i, Y_j)\)</span> pour lesquels <span class="math inline">\(Y_j &lt; X_i\)</span> prend des valeurs plus grandes sous <span class="math inline">\(\mathcal{H}_1\)</span> que sous <span class="math inline">\(\mathcal{H}_0\)</span>.</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-31" class="proposition"><strong>Proposition 2.8  </strong></span>On appelle <strong>test de Mann-Whitney</strong> pour <span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \leq G\)</span> le test défini à partir de la statistique
+<span class="math display">\[ 
+MW_{X&gt;Y} = \sum_{i=1}^n \sum_{j=1}^m \mathbb{1}_{X_i &gt;Y_j}.
+\]</span>
+La région de rejet au niveau <span class="math inline">\(\alpha\)</span> est de la forme <span class="math inline">\(\mathcal R_{\alpha} = \{MW_{X&gt;Y}\geq \tilde u_{(n,m),1-\alpha} \}\)</span>.</p>
+</div>
+<p>La statistique <span class="math inline">\(MW_{X&gt;Y}\)</span> vérifie des propriétés similaires à celles de <span class="math inline">\(MW_{X&lt;Y}\)</span> vues précédemment.</p>
+<p>Enfin dans le cas d’un test bilatéral de <span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \neq G\)</span>, on combine les deux tests précédents :</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-32" class="proposition"><strong>Proposition 2.9  </strong></span>On appelle <strong>test de Mann-Whitney</strong> pour <span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \neq G\)</span> le test défini à partir de la statistique
+<span class="math display">\[ 
+MW_{X,Y} = max(MW_{X&lt;Y},MW_{X&gt;Y}).
+\]</span>
+La région de rejet au niveau <span class="math inline">\(\alpha\)</span> est de la forme <span class="math inline">\(\mathcal R_{\alpha} = \{MW_{X,Y}\geq v_{(n,m),1-\alpha} \}\)</span>.</p>
+</div>
+</div>
+<div id="test-de-wilcoxon" class="section level4">
+<h4><span class="header-section-number">2.3.2.2</span> Test de Wilcoxon</h4>
+<p>Revenons au test de <span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \geq G\)</span>. Il existe une autre forme équivalente du test de Mann-Whitney, appelée test de la somme des rangs de Wilcoxon.</p>
+<p>Soit <span class="math inline">\(Z = (Z_1, \ldots, Z_n,Z_{n+1}, \ldots, Z_N)=(X_1, \ldots,X_n,Y_1,\ldots, Y_m)\)</span> l’échantillon complet. On définit <span class="math inline">\((R_1,\ldots,R_m)\)</span> où <span class="math inline">\(R_j\)</span> est le rang de <span class="math inline">\(Y_j\)</span> dans l’échantillon complet ordonné <span class="math inline">\(Z_{(.)}\)</span> :
+<span class="math display">\[ R_j=\sum_{k=1}^N \mathbb{1}_{Z_k &lt; Y_j}+1.\]</span></p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-33" class="proposition"><strong>Proposition 2.10  </strong></span>La statistique de Wilcoxon consiste à calculer la somme des rangs des individus du deuxième échantillon :
+<span class="math display">\[W_{Y}=\sum_{j=1}^m R_j.\]</span>
+Comme on a la relation
+<span class="math display">\[MW_{X&lt;Y}=  W_{Y} - \frac{m(m+1)}{2},\]</span>
+les deux statistiques conduisent au même test.</p>
+</div>
+<p>De façon similaire, on peut construire la statistique de test de Wilcoxon <span class="math inline">\(W_{X}\)</span> (somme des rangs des <span class="math inline">\(X_i\)</span> dans <span class="math inline">\(Z\)</span>) liée à la statistique de test <span class="math inline">\(MW_{X&gt;Y}\)</span> pour tester <span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \leq G\)</span>.</p>
+<p>On peut remarquer que
+<span class="math display">\[
+W_X + W_Y = \sum_{k=1}^{n+m} k = \frac{N (N+1)}{2}. 
+\]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-34" class="example"><strong>Example 2.4  </strong></span>On reprend l’exemple des médicaments. On veut tester si le médicament <span class="math inline">\(B\)</span> est plus efficace que le <span class="math inline">\(A\)</span> (<span class="math inline">\(\mathcal{H}_0: F_A=F_B\)</span> contre <span class="math inline">\(\mathcal{H}_1: F_B \geq F_A\)</span>). On a alors l’échantillon complet ordonné observé</p>
+<p><span class="math display">\[\begin{eqnarray*}
+z_{(.)} &amp;=&amp; (1.5, 2.1, 2.3, 2.5, 2.8, 3.1, 3.3, 4.2, 4.4, 4.5, 4.7, 4.8, 4.9, 5.8, 6.6, 6.8)\\
+&amp; = &amp; {\scriptsize (mB_6, mB_4, mB_8, mB_2, mB_3, mA_2,mA_5,mA_7,mB_1,mA_4,mA_6,mB_7,mA_8,mA_3,mB_5,mA_1)}
+\end{eqnarray*}\]</span></p>
+<p>Les rangs observés pour les valeurs de B valent donc
+<span class="math display">\[R_1=9,R_2=4,R_3=5,R_4=2,R_5=15,R_6=1, R_7=12, R_8=3\]</span>
+ce qui donne <span class="math inline">\(W_B=51\)</span> et <span class="math inline">\(W_A=(16\times 17)/2 - 51 = 85\)</span>.</p>
+<p>On a également que
+<span class="math display">\[\begin{eqnarray*}
+MW_{B&lt;A}&amp;=&amp;\sum_{i=1}^8\sum_{j=1}^8 \mathbb{1}_{B_i &lt; A_j}\\ 
+&amp;=&amp; 5+ 5+5+6+6+7+7+8 = 49 = W_A - (8 \times 9) /2
+\end{eqnarray*}\]</span></p>
+<p>et</p>
+<p><span class="math display">\[\begin{eqnarray*}
+MW_{B&gt;A} &amp;=&amp; \sum_{i=1}^8\sum_{j=1}^8 \mathbb{1}_{B_i &gt; A_j} \\
+&amp;=&amp; 3+3+3+2+2+1+1+0=15 = W_B - (8 \times 9) /2. 
+\end{eqnarray*}\]</span></p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb7-1"></a><span class="kw">wilcox.test</span>(mB,mA,<span class="dt">alternative=</span><span class="st">&quot;less&quot;</span>)</span></code></pre></div>
+<pre><code>
+    Wilcoxon rank sum exact test
+
+data:  mB and mA
+W = 15, p-value = 0.04149
+alternative hypothesis: true location shift is less than 0</code></pre>
+</div>
+</div>
+<div id="subexaequo" class="section level4">
+<h4><span class="header-section-number">2.3.2.3</span> Traitement des ex-aequos</h4>
+<p>Nous avons supposé les lois continues, donc la probabilité d’avoir des ex-aequos est nulle. En pratique, soit parce que les lois ne sont pas continues, soit parce qu’on a des mesures arrondies, on peut avoir des ex-aequos.
+Dans ce cas, on peut considérer les statistiques de test de Mann-Whitney suivantes :
+<span class="math display">\[ 
+    \tilde{MW}_{X&lt;Y} = \sum_{i=1}^n \sum_{j=1}^m \left\{\mathbb{1}_{X_i &lt;Y_j} + \frac 1 2 \mathbb{1}_{X_i =Y_j} \right\}
+\]</span>
+et
+<span class="math display">\[ 
+    \tilde{MW}_{X&gt;Y} = \sum_{i=1}^n \sum_{j=1}^m \left\{\mathbb{1}_{X_i &gt;Y_j} + \frac 1 2 \mathbb{1}_{X_i =Y_j} \right\}
+\]</span>
+respectivement. On peut remarquer que <span class="math inline">\(\tilde{MW}_{X&lt;Y} +\tilde{MW}_{X&gt;Y} =nm\)</span>.</p>
+<p>Pour le test de Wilcoxon, on utilise les rangs moyens : le rang de tous les éléments d’un groupe d’ex-aequos est la moyenne des rangs des éléments du groupe. On corrige ainsi les <span class="math inline">\(R_j\)</span> définis précédemment.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-35" class="example"><strong>Example 2.5  </strong></span>On considère les valeurs observées suivantes pour les deux échantillons :
+<span class="math display">\[
+\underline{x} = (5,3,6,8,1,6) \textrm { avec } n=6
+\textrm{ et }
+\underline{y} = (5,7,9,5,2) \textrm { avec } m=5.
+\]</span>
+On obtient alors le tableau des valeurs ordonnées et rangs suivant :</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(x_{(.)}\)</span></td>
+<td>1</td>
+<td></td>
+<td>3</td>
+<td></td>
+<td>5</td>
+<td></td>
+<td>6</td>
+<td>6</td>
+<td></td>
+<td>8</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(y_{(.)}\)</span></td>
+<td></td>
+<td>2</td>
+<td></td>
+<td>5</td>
+<td></td>
+<td>5</td>
+<td></td>
+<td></td>
+<td>7</td>
+<td></td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\tilde R_i\)</span></td>
+<td>1</td>
+<td></td>
+<td>3</td>
+<td></td>
+<td>5</td>
+<td></td>
+<td>7.5</td>
+<td>7.5</td>
+<td></td>
+<td>10</td>
+<td></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\tilde R_j\)</span></td>
+<td></td>
+<td></td>
+<td>2</td>
+<td></td>
+<td>5</td>
+<td></td>
+<td>5</td>
+<td></td>
+<td>9</td>
+<td></td>
+<td>11</td>
+</tr>
+</tbody>
+</table>
+<!--
+\begin{tabular}{c c c c c c c c c c c c}
+\hline
+$x_{(.)}$        & 1 &    & 3 &     & 5 &     & 6 & 6 & &8 & \\
+\hline
+$y_{(.)}$        &    & 2 &    & 5  &    & 5 &     &    & 7 & & 9\\
+\hline
+$\tilde R_i$   & 1 &    & 3 &     & 5 &    &   7.5 & 7.5 & & 10 & \\
+\hline
+$\tilde R_j$   &    & 2 &    & 5  &    & 5 &  & & 9 &  & 11\\
+\hline
+\end{tabular}
+-->
+<p>Ainsi
+<span class="math display">\[\left(\tilde MW_{X&lt;Y} \right)^{obs} = 1 + (2+\frac 1 2) + (2+\frac 1 2) +5+6=17,\]</span>
+<span class="math display">\[\left(\tilde W_Y\right)^{obs} = \sum_{j=1}^{5} \tilde R_j = 2+5+5+9+11=32\]</span>
+et on retrouve bien que <span class="math inline">\(\left(\tilde MW_{X&lt;Y} \right)^{obs} =\tilde W_Y^{obs} - \frac{5\times 6}{2}.\)</span></p>
+</div>
+</div>
+</div>
+<div id="test-de-la-médiane" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Test de la médiane</h3>
+<p>On veut tester <span class="math inline">\(\mathcal{H}_0\)</span>: <span class="math inline">\(F=G\)</span> contre <span class="math inline">\(\mathcal{H}_1\)</span>: <span class="math inline">\(F \geq G\)</span> et on suppose que <span class="math inline">\(F\)</span> et <span class="math inline">\(G\)</span> sont continues.
+Le principe du test de la médiane consiste à déterminer le nombre de variables du deuxième échantillon qui sont supérieures à la médiane de l’ensemble des observations.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-36" class="definition"><strong>Definition 2.5  </strong></span>Le <strong>test de la médiane</strong> est défini à partir de la statistique
+<span class="math display">\[ M_{X,Y}= \frac1m \sum_{j=1}^m \mathbb{1}_{R_j &gt;\frac{N+1}{2}}.\]</span>
+La région de rejet au niveau <span class="math inline">\(\alpha\)</span> est de la forme <span class="math inline">\(\mathcal R_\alpha = \{M_{X,Y} \geq m_{n,m,1-\alpha}\}\)</span>.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-37" class="example"><strong>Example 2.6  </strong></span>Test de localisation.</p>
+<p><span class="math inline">\(X_1, \ldots, X_n\)</span> sont i.i.d. de fonction de répartition <span class="math inline">\(F\)</span> et <span class="math inline">\(Y_1, \ldots, Y_m\)</span> sont i.i.d. de fonction de répartition <span class="math inline">\(G=F(.-\mu)\)</span>. Par exemple, on étudie la pression artérielle de patients soumis à un traitement contre l’hypertension <span class="math inline">\((Y_j)\)</span>, et on les compare à des patients non traités <span class="math inline">\((X_i)\)</span>. Supposons qu’après traitement, la loi de la pression artérielle est translatée de <span class="math inline">\(\mu\)</span>. Le traitement est efficace si <span class="math inline">\(\mu &lt;0\)</span>, il est inefficace si <span class="math inline">\(\mu=0\)</span>.</p>
+</div>
+<p><strong>Loi de <span class="math inline">\(M_{X,Y}\)</span> sous <span class="math inline">\(\mathcal{H}_0\)</span> :</strong></p>
+<ul>
+<li>Si <span class="math inline">\(N\)</span> pair,<br />
+<span class="math display">\[
+\forall k\in \left\{ \max(0, m - \frac N 2),\ldots,\min(m, \frac N 2)\right\}, \mathbb{P}_{\mathcal{H}_0}(m M_{X,Y}=k)=\frac{C_m^k C_{N-m}^{N/2-k}}{C_{N}^{N/2}}.
+\]</span>
+Donc <span class="math inline">\(n M_{X,Y}\)</span> suit une loi hypergéométrique <span class="math inline">\(\mathcal{H}(N,\frac N 2, m)\)</span>.</li>
+</ul>
+<p>On en déduit que <span class="math inline">\(\mathbb{E}_{\mathcal{H}_0}[M_{X,Y}] = \frac 1 2\)</span> et <span class="math inline">\(\mbox{Var}_{\mathcal{H}_0}(M_{X,Y}) = \frac{n}{4m(N-1)}\)</span>.</p>
+<ul>
+<li>Si <span class="math inline">\(N\)</span> est impair,<br />
+<span class="math display">\[
+\forall k\in \left\{ \max(0,m- \frac{N+1}{ 2}),\ldots,\min(m, \frac{N-1}{ 2}) \right\}, \mathbb{P}_{\mathcal{H}_0}(m M_{X,Y}=k)=\frac{C_m^k C_{N-m}^{\frac{N-1}{2}-k}}{C_{N}^{\frac{N-1}{2}}}.
+\]</span>
+Donc <span class="math inline">\(n M_{X,Y}\)</span> suit une loi hypergéométrique <span class="math inline">\(\mathcal{H}(N,\frac{N-1}{2}, m)\)</span>.</li>
+</ul>
+<p>On en déduit que <span class="math inline">\(\mathbb{E}_{\mathcal{H}_0}[M_{X,Y}] = \frac{N-1}{2N}\)</span> et <span class="math inline">\(\mbox{Var}_{\mathcal{H}_0}(M_{X,Y}) = \frac{n(N+1)}{4mN^2}\)</span>.</p>
+<p>La connaissance de la loi de <span class="math inline">\(M_{X,Y}\)</span> sous <span class="math inline">\(\mathcal{H}_0\)</span> permet de déterminer la région de rejet du test. Pour <span class="math inline">\(n,m \geq 30\)</span>, on peut approximer la loi de <span class="math inline">\(M_{X,Y}\)</span> sous <span class="math inline">\(\mathcal{H}_0\)</span> par la loi <span class="math inline">\(\mathcal{N}(\mathbb{E}_{\mathcal{H}_0}[M_{X,Y}],\mbox{Var}_{\mathcal{H}_0}(M_{X,Y}))\)</span>.</p>
+</div>
+</div>
+<div id="tests-de-normalité" class="section level2">
+<h2><span class="header-section-number">2.4</span> Tests de normalité</h2>
+<p>Dans cette section, on considère un <span class="math inline">\(n\)</span>-échantillon <span class="math inline">\((X_1,\ldots,X_n)\)</span> de fonction de répartition <span class="math inline">\(F\)</span>. On note <span class="math inline">\(\hat F_n\)</span> la fonction de répartition empirique associée à cet échantillon.</p>
+<p>Pour illustrer les différentes méthodes, nous allons considérer les trois échantillons de taille <span class="math inline">\(n=200\)</span> suivants :</p>
+<ul>
+<li><em>Ech1</em> : un échantillon simulé selon la loi <span class="math inline">\(\mathcal N(2,1)\)</span></li>
+<li><em>Ech2</em> : un échantillon simulé selon la loi uniforme sur l’intervalle <span class="math inline">\([2,4]\)</span></li>
+<li><em>Ech3</em> : un échantillon simulé selon la loi de Cauchy de paramètre 1</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb9-1"></a>n=<span class="dv">200</span></span>
+<span id="cb9-2"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb9-2"></a>Ech1=<span class="kw">rnorm</span>(n,<span class="dv">2</span>,<span class="dv">1</span>)</span>
+<span id="cb9-3"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb9-3"></a>Ech2=<span class="kw">runif</span>(n,<span class="dt">min=</span><span class="dv">2</span>,<span class="dt">max=</span><span class="dv">4</span>)</span>
+<span id="cb9-4"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb9-4"></a>Ech3=<span class="kw">rcauchy</span>(n)</span></code></pre></div>
+<div id="méthode-graphique-droite-de-henry" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Méthode graphique : droite de Henry</h3>
+<p>La méthode de la droite de Henry, aussi appelée “Normal Probability Plot’’ ou”Q-Q Plot’’, consiste à représenter les points <span class="math inline">\((X_{(i)}, \Phi^{-1}\circ \hat{F}_n(X_{(i)}))\)</span>, où <span class="math inline">\(X_{(1)} \leq \ldots \leq X_{(n)}\)</span> est l’échantillon ordonné et
+<span class="math inline">\(\Phi\)</span> représente la fonction de répartition de la loi <span class="math inline">\(\mathcal{N}(0,1)\)</span>. Notons que <span class="math inline">\(\hat F_n(X_{(i)})=i/n\)</span>.
+Sous l’hypothèse que les <span class="math inline">\(X_i\)</span> sont i.i.d. de loi normale, les points <span class="math inline">\((X_{(i)}, \Phi^{-1}\circ \hat F_n(X_{(i)}))\)</span> sont pratiquement alignés. Le Q-Q plot pour les trois échantillons simulés est donné en Figure <a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#fig:QQplot">2.5</a>.</p>
+<div class="figure"><span id="fig:QQplot"></span>
+<img src="Bookdown-poly_files/figure-html/QQplot-1.png" alt="\label{QQplot} Q-Q plot pour les 3 échantillons (N(2,1) à gauche, U([2,4]) au centre, et C(1) à droite) " width="672" />
+<p class="caption">
+Figure 2.5:  Q-Q plot pour les 3 échantillons (N(2,1) à gauche, U([2,4]) au centre, et C(1) à droite)
+</p>
+</div>
+</div>
+<div id="test-de-normalité-de-kolmogorov-smirnov-de-lilliefors" class="section level3">
+<h3><span class="header-section-number">2.4.2</span> Test de normalité de Kolmogorov-Smirnov (de Lilliefors)</h3>
+<p>On souhaite tester l’hypothèse <span class="math inline">\(\mathcal{H}_0\)</span> : “les <span class="math inline">\(X_i\)</span> suivent une loi normale”, contre l’hypothèse <span class="math inline">\(\mathcal{H}_1\)</span> : “les <span class="math inline">\(X_i\)</span> ne suivent pas une loi normale”. On note</p>
+<p><span class="math display">\[
+\bar{X}=\frac1n \sum_{i=1}^n X_i, \ S^2=\frac1{n-1}  \sum_{i=1}^n (X_i-\bar{X})^2.
+\]</span></p>
+<div class="definition">
+<p><span id="def:unlabeled-div-38" class="definition"><strong>Definition 2.6  </strong></span>Le <strong>test de normalité de Kolmogorov</strong> est fondé sur la statistique de test
+<span class="math display">\[ 
+D\mathcal{N}_n=\sup_{t \in \mathbb{R}}| \hat F_n(t)-\Phi(t; \bar{X},S^2)|
+\]</span>
+où <span class="math inline">\(\Phi(. ; \bar{X},S^2)\)</span> est la fonction de répartition de la loi normale <span class="math inline">\(\mathcal{N}(\bar{X},S^2)\)</span>.
+La région de rejet au niveau <span class="math inline">\(\alpha\)</span> est de la forme <span class="math inline">\(\mathcal R_\alpha = \{ D\mathcal{N}_n &gt; d_{n,1-\alpha}\}\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-39" class="proposition"><strong>Proposition 2.11  </strong></span>Sous l’hypothèse <span class="math inline">\(\mathcal{H}_0\)</span>, i.e les <span class="math inline">\(X_i\)</span> suivent une loi normale <span class="math inline">\(\mathcal{N}(\mu, \sigma^2)\)</span>, la loi de <span class="math inline">\(D\mathcal{N}_n\)</span> ne dépend pas des paramètres inconnus <span class="math inline">\((\mu, \sigma^2)\)</span>. Il s’agit de la loi de
+<span class="math display">\[
+KS\mathcal{N}_n = \underset{t\in\mathbb{R}}{\sup}\ \left|  \hat{\Phi}_n(t) - \Phi\left(\frac{t - \hat\mu_{\mathcal{Z}}}{S_{\mathcal{Z}}}\right)  \right|
+\]</span>
+où <span class="math inline">\(\mathcal{Z}=(Z_1,\ldots,Z_n)\)</span> i.i.d de loi <span class="math inline">\(\mathcal{N}(0,1)\)</span>, <span class="math inline">\(\hat\Phi_n\)</span> la fonction de répartition empirique de <span class="math inline">\(\mathcal{Z}\)</span>, <span class="math inline">\(\hat\mu_{\mathcal{Z}}\)</span> la moyenne empirique et <span class="math inline">\(S^2_{\mathcal{Z}}\)</span> la variance empirique de <span class="math inline">\(\mathcal{Z}\)</span>.</p>
+</div>
+<p>La loi de <span class="math inline">\(D\mathcal{N}_n\)</span> est tabulée (on peut par exemple la simuler avec <span class="math inline">\(\mu=0\)</span> et <span class="math inline">\(\sigma^2=1\)</span> pour en estimer les quantiles).</p>
+<p>On applique le test de normalité de Kolmogorov-Smirnov sur les trois échantillons simulés :</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb10-1"></a><span class="kw">library</span>(nortest)</span>
+<span id="cb10-2"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb10-2"></a><span class="kw">lillie.test</span>(Ech1)</span></code></pre></div>
+<pre><code>
+    Lilliefors (Kolmogorov-Smirnov) normality test
+
+data:  Ech1
+D = 0.041892, p-value = 0.532</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb12-1"></a><span class="kw">lillie.test</span>(Ech2)</span></code></pre></div>
+<pre><code>
+    Lilliefors (Kolmogorov-Smirnov) normality test
+
+data:  Ech2
+D = 0.083624, p-value = 0.001691</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb14-1"></a><span class="kw">lillie.test</span>(Ech3)</span></code></pre></div>
+<pre><code>
+    Lilliefors (Kolmogorov-Smirnov) normality test
+
+data:  Ech3
+D = 0.34735, p-value &lt; 2.2e-16</code></pre>
+</div>
+<div id="test-de-shapiro-wilk" class="section level3">
+<h3><span class="header-section-number">2.4.3</span> Test de Shapiro-Wilk</h3>
+<p>Il s’agit d’un test basé sur les <span class="math inline">\(L\)</span>-statistiques (combinaison linéaire des statistiques d’ordre), qui se base sur une comparaison de la variance empirique avec un estimateur de la variance des <span class="math inline">\(X_i\)</span> qui a de bonnes propriétés sous l’hypothèse de normalité.</p>
+<div id="estimation-de-la-moyenne-et-de-la-variance-à-laide-des-statistiques-dordre-pour-des-lois-symétriques" class="section level4">
+<h4><span class="header-section-number">2.4.3.1</span> Estimation de la moyenne et de la variance à l’aide des statistiques d’ordre pour des lois symétriques</h4>
+<p>Soit <span class="math inline">\(X_1, \ldots, X_n\)</span> i.i.d. On note <span class="math inline">\(\mu=\mathbb{E}[X_i]\)</span> et <span class="math inline">\(\sigma^2=\mbox{Var}(X_i)\)</span>. La loi de
+<span class="math inline">\(Y_i=(X_i-\mu)/\sigma\)</span> est supposée symétrique (ce qui signifie que <span class="math inline">\(-Y_i\)</span> a même loi que <span class="math inline">\(Y_i\)</span>). On note <span class="math inline">\((X_{(1)}, \ldots, X_{(n)})\)</span> l’échantillon des <span class="math inline">\(X_i\)</span> ordonné :
+<span class="math inline">\(X_{(1)} \leq \ldots \leq X_{(n)}\)</span>. On note <span class="math inline">\((Y_{(1)}, \ldots, Y_{(n)})\)</span> l’échantillon des <span class="math inline">\(Y_i\)</span> ordonné. On a
+<span class="math display">\[Y_{(i)}=(X_{(i)}-\mu)/\sigma.\]</span>
+Pour <span class="math inline">\(i, j \in \{1, \ldots,n\}\)</span>, on note
+<span class="math inline">\(\alpha_i=\mathbb{E}[Y_{(i)}]\)</span> et <span class="math inline">\(B_{i,j}=\mbox{Cov}(Y_{(i)},Y_{(j)}).\)</span>
+On a alors
+<span class="math display">\[X_{(i)}= \mu+\alpha_i \sigma +\varepsilon_i,\]</span>
+avec <span class="math inline">\(\mathbb{E}[\varepsilon_i]=0\)</span>. Les <span class="math inline">\(\varepsilon_i\)</span> ne sont pas indépendantes. La matrice de variance-covariance du vecteur <span class="math inline">\(\varepsilon=(\varepsilon_1, \ldots, \varepsilon_n)&#39;\)</span> est <span class="math inline">\(\sigma^2 B\)</span>. On note <span class="math inline">\(1_n\)</span> et <span class="math inline">\(\alpha\)</span> les vecteurs de <span class="math inline">\(\mathbb{R}^n\)</span> définis par
+<span class="math display">\[1_n=\left( \begin{array}{c}  1\\ 1\\ .\\ .\\ 1\end{array} \right), \quad \alpha=\left(\begin{array}{c}  \alpha_1\\ \alpha_2\\ .\\ .\\ \alpha_n \end{array}\right).\]</span>
+On note <span class="math inline">\(A\)</span> la matrice de taille <span class="math inline">\((n,2)\)</span> définie par <span class="math inline">\(A=(1_n, \alpha)\)</span>. Enfin, on note
+<span class="math inline">\(X_{(.)}=(X_{(1)}, \ldots, X_{(n)})&#39;\)</span> et <span class="math inline">\(\varepsilon=(\varepsilon_1, \ldots, \varepsilon_n)&#39;\)</span>. On a la relation
+<span class="math display">\[X_{(.)}= A \left( \begin{array}{c} \mu \\ \sigma \end{array}\right) + \varepsilon.\]</span>
+L’estimateur des moindres carrés pondérés de <span class="math inline">\((\mu, \sigma)\)</span> est obtenu en minimisant en les paramètres <span class="math inline">\((\mu, \sigma)\)</span> le critère :
+<span class="math display">\[\left( X_{(.)}- A \left( \begin{array}{c} \mu \\ \sigma \end{array}\right)\right)&#39; B^{-1} \left( X_{(.)}- A \left(\begin{array}{c} \mu \\ \sigma\end{array}\right)\right).\]</span>
+On obtient comme solution de ce système
+<span class="math display">\[\left( \begin{array}{c} \hat{\mu}_n \\ \hat{\sigma}_n \end{array}\right)= (A&#39;B^{-1} A)^{-1} A&#39;B^{-1} X_{(.)}.\]</span>
+(cf cours sur le modèle linéaire)</p>
+<p><span class="math display">\[A&#39;B^{-1} A =  \left( \begin{array}{c c } 1_n&#39;B^{-1} 1_n &amp; 1_n&#39;B^{-1} \alpha \\ \alpha&#39; B^{-1} 1_n &amp; \alpha&#39; B^{-1} \alpha \end{array}\right).\]</span></p>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-40" class="lemma"><strong>Lemma 2.1  </strong></span>Lorsque la loi des <span class="math inline">\(Y_i\)</span> est symétrique, <span class="math inline">\(1_n&#39;B^{-1} \alpha =0\)</span> , la matrice <span class="math inline">\(A&#39;B^{-1} A\)</span> est donc diagonale.</p>
+</div>
+<p>Il en résulte que
+<span class="math display">\[\hat{\mu}_n= \frac{ 1_n&#39;B^{-1} X_{(.)}}{ 1_n&#39;B^{-1} 1_n},\quad \hat{\sigma}_n= \frac{ \alpha&#39;B^{-1} X_{(.)}}{ \alpha&#39;B^{-1} \alpha}.\]</span>
+On peut montrer que, si la loi des <span class="math inline">\(Y_i\)</span> n’est pas symétrique, <span class="math inline">\(\hat{\sigma}_n\)</span> sous-estime <span class="math inline">\(\sigma\)</span>.</p>
+</div>
+<div id="procédure-de-test" class="section level4">
+<h4><span class="header-section-number">2.4.3.2</span> Procédure de test</h4>
+<div class="definition">
+<p><span id="def:unlabeled-div-41" class="definition"><strong>Definition 2.7  </strong></span>Soit <span class="math inline">\(Y_1, \ldots Y_n\)</span> i.i.d. de loi <span class="math inline">\(\mathcal{N}(0,1)\)</span> et <span class="math inline">\(Y_{(1)} \leq \ldots \leq Y_{(n)}\)</span> l’échantillon ordonné.
+Soit <span class="math inline">\(\alpha=(\mathbb{E}[Y_{(1)}], \ldots\mathbb{E}[Y_{(n)}] )&#39;\)</span>. Soit <span class="math inline">\(B\)</span> la matrice de covariance du vecteur <span class="math inline">\((Y_{(1)},\ldots , Y_{(n)})\)</span>.
+Le <strong>test de Shapiro-Wilk</strong> pour tester l’hypothèse de normalité des <span class="math inline">\(X_i\)</span> est basé sur la statistique de test :
+<span class="math display">\[ 
+    SW_n=\frac{\hat{\sigma}_n^2 (\alpha&#39; B^{-1} \alpha)^2}{\sum_{i=1}^n (X_i-\bar{X}_n)^2 (\alpha&#39; B^{-2} \alpha)}.
+\]</span>
+On peut l’écrire sous la forme
+<span class="math display">\[SW_n= \frac{\left(\sum_{i=1}^n a_i X_{(i)}\right)^2}{ \sum_{i=1}^n (X_i-\bar{X}_n)^2},\]</span>
+avec
+<span class="math display">\[(a_1, \ldots,a_n)=\frac{\alpha&#39; B^{-1}}{(\alpha&#39; B^{-1}B^{-1}\alpha)^{1/2}}.\]</span>
+La région de rejet est de la forme <span class="math inline">\(\{SW_n \leq c_{n, \alpha}\}\)</span>.</p>
+</div>
+<p>Les <span class="math inline">\(a_i\)</span> sont tabulés, ce qui permet de calculer facilement <span class="math inline">\(SW_n\)</span>, les quantiles <span class="math inline">\(c_{n,\alpha}\)</span> sont également tabulés. On peut interpréter <span class="math inline">\(SW_n\)</span> comme une mesure de corrélation (au carré) entre les données ordonnées et les statistiques d’ordre d’une loi normale.</p>
+<p>Le test de Shapiro-Wilk est ici appliqué sur les trois échantillons simulés :</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb16-1"></a><span class="kw">shapiro.test</span>(Ech1)</span></code></pre></div>
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  Ech1
+W = 0.99268, p-value = 0.4201</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb18-1"></a><span class="kw">shapiro.test</span>(Ech2)</span></code></pre></div>
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  Ech2
+W = 0.95826, p-value = 1.289e-05</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="tests-basés-sur-la-fonction-de-répartition-empirique-et-sur-les-rangs.html#cb20-1"></a><span class="kw">shapiro.test</span>(Ech3)</span></code></pre></div>
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  Ech3
+W = 0.45775, p-value &lt; 2.2e-16</code></pre>
+
+</div>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-CaperaaCutsem">
+<p>Caperaa, P., and B. van Cutsem. 1988. <em>Méthodes et Modèles En Statistique Non Paramétrique : Exposé Fondamental.</em> Dunod.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="Rappels.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tests-du-khi-deux.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["Bookdown-poly.pdf", "Bookdown-poly.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
